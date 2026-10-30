@@ -1,0 +1,74 @@
+/* Les objets de l'illustration sont les seuls repères dans le décor. */
+#hotspots .scene-item{position:absolute;transform:none;translate:none;padding:0;border:0!important;border-radius:22%;background:transparent!important;box-shadow:none!important;outline:none;backdrop-filter:none;color:transparent;cursor:pointer;transition:background .18s,box-shadow .18s,backdrop-filter .18s;z-index:2}
+#hotspots .scene-item::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:inherit;border:1px solid transparent;transition:border-color .18s,box-shadow .18s}
+#hotspots .scene-item:hover,#hotspots .scene-item:focus-visible{background:#ffeb9a18!important;backdrop-filter:brightness(1.3) saturate(1.15);box-shadow:inset 0 0 22px #fff1aa55,0 0 17px #ffe29a33!important}
+#hotspots .scene-item:hover::after,#hotspots .scene-item:focus-visible::after{border-color:#ffe5a199;box-shadow:0 0 10px #ffe5a144}
+#hotspots .scene-item:focus:not(:focus-visible){outline:none}
+#hotspots .person{border-radius:40%;z-index:3}
+#hotspots .person:hover,#hotspots .person:focus-visible{backdrop-filter:brightness(1.12);box-shadow:inset 0 0 28px #fff2a83d!important}
+#hotspots .computer-hotspot{display:block;min-width:0;min-height:0;right:auto;bottom:auto;border-radius:16%;z-index:3}
+#hotspots .object{min-width:0;min-height:0;border-radius:30%;z-index:4}
+#hotspots .puzzle-hotspot{z-index:2}
+#hotspots .hot-label,#hotspots .target{display:none!important}
+#hotspots .highlight-clue{outline:3px solid #ffe29a!important;outline-offset:3px;background:#ffe29a22!important;backdrop-filter:brightness(1.3);box-shadow:0 0 20px #ffe29a55!important}
+@media(max-width:600px){
+ .stage{aspect-ratio:16/9;overflow:hidden}
+ .background{width:100%;height:100%;left:0;object-fit:fill}
+ .stage>.objective,.stage>.room-label,.stage>.scene-message{display:none}
+ #hotspots .scene-item{right:auto!important;bottom:auto!important;transform:none!important;min-width:0;min-height:0}
+ #hotspots .object-0,#hotspots .object-1{left:var(--scene-x)!important;top:var(--scene-y)!important}
+ #hotspots .person{left:13%;top:17%;width:17%;height:70%}
+ #hotspots .computer-hotspot{left:var(--scene-x)!important;top:var(--scene-y)!important}
+ .welcome{top:10px;bottom:10px;left:38%;right:10px;width:auto;padding:12px;border-radius:15px;max-height:none}
+ .welcome h1{font-size:17px;line-height:1.15;margin:0 0 8px}
+ .welcome p{font-size:8px;line-height:1.5;margin:5px 0 8px}
+ .welcome .primary{padding:8px 6px;font-size:8px}
+ .welcome-note{display:none}
+}
+@media(prefers-reduced-motion:reduce){#hotspots .scene-item,#hotspots .scene-item::after{transition:none}}
+
+.course-hotspot{position:absolute;border:0;border-radius:12px;background:transparent;cursor:pointer}.part-picker{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.part-picker .selected{background:#0030b8;color:white}.course-clips{display:flex;flex-wrap:wrap;gap:8px;padding-bottom:16px}.course-clips [aria-current=step]{color:#0030b8;text-decoration:underline}.lesson-media{display:grid;grid-template-columns:minmax(0,3fr) minmax(180px,1fr);gap:16px;align-items:start}.original-slide{width:100%;border-radius:12px}.lesson-presenter video{width:100%;max-height:380px;background:#151725;border-radius:12px}.lesson-caption{font-size:14px;min-height:3em}.course-dialog .dialog-actions{flex-wrap:wrap}@media(max-width:700px){.lesson-media{grid-template-columns:1fr}.lesson-presenter video{max-height:230px}.course-clips{max-height:150px;overflow:auto}.part-picker{gap:4px}.part-picker button{padding:8px 12px}}
+
+.mentor-speech{margin:18px 0;padding:16px 20px;background:#f3f4fa;border-left:4px solid #4a1bd0;border-radius:0 12px 12px 0;line-height:1.7}.mentor-scene{line-height:1.8}
+
+.interactive-lesson{width:100%;aspect-ratio:16/9;background:#f3f4fa;border-radius:14px;overflow:hidden}.interactive-lesson iframe{width:100%;height:100%;border:0;display:block}.slide-controls{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:14px 0}.optional-media{border:1px solid #e1e3ed;border-radius:14px;padding:16px;margin-top:18px}.media-heading{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.optional-media video{width:240px;max-width:100%;max-height:260px;background:#171925;border-radius:10px;margin-top:12px}.optional-media video[hidden]{display:none!important}.optional-media .lesson-caption{min-height:0}.interactive-lesson iframe:fullscreen{width:100vw;height:100vh;background:#f3f4fa}@media(max-width:600px){.slide-controls{gap:6px}.slide-controls button{font-size:11px;padding:9px}.slide-controls span{font-size:12px}.optional-media{padding:12px}.media-heading .dialog-actions{justify-content:flex-start;margin-top:0}}
+
+/* La voix off reprend sa place sur la slide Ri7. */
+.interactive-lesson{position:relative}.slide-video-overlay{position:absolute;top:8.89%;right:5.83%;width:20.83%;aspect-ratio:4/3;margin:0;border-radius:12px;overflow:hidden;border:1px solid #dce0eb;box-shadow:0 8px 25px #14151f26;background:#171925;z-index:2}.slide-video-overlay video{display:block;width:100%;height:100%;object-fit:cover}.slide-video-overlay[hidden]{display:none!important}.interactive-lesson>.lesson-caption{position:absolute;left:15%;right:15%;bottom:6%;margin:0;padding:8px 14px;border-radius:8px;background:#14151fdf;color:white;text-align:center;font-size:clamp(10px,1.2vw,17px);line-height:1.5;pointer-events:none;z-index:3}.interactive-lesson>.lesson-caption:empty{display:none}.interactive-lesson:fullscreen{width:100vw;height:100vh;aspect-ratio:auto;border-radius:0;background:#f3f4fa}.interactive-lesson:fullscreen iframe{width:100%;height:100%}@media(max-width:600px){.slide-video-overlay{border-radius:6px}.interactive-lesson>.lesson-caption{font-size:9px;padding:3px 6px}}
+
+.character-voice-panel{display:flex;align-items:center;flex-wrap:wrap;gap:10px;border-top:1px solid #e1e3ed;padding-top:16px;margin-top:20px}.character-voice-panel .small-note{flex-basis:100%;margin:0}
+
+.tutorial-intro{padding:12px 4px}.tutorial-eyebrow{font:11px 'Fira Code',monospace;letter-spacing:.12em;color:#0030b8}.tutorial-intro h2{font-size:clamp(30px,5vw,50px);line-height:1.13;margin:18px 0}.tutorial-preview{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.tutorial-preview article{padding:20px;background:#f3f4fa;border-radius:16px}.tutorial-preview b{color:#4a1bd0;font:20px 'Fira Code',monospace}.tutorial-preview h3{margin:12px 0 6px}.tutorial-preview p{font-size:13px;margin:0}.tutorial-coach{background:#fff;border:1px solid #d9d9f1;border-left:5px solid #4a1bd0;border-radius:16px;padding:16px 20px;margin:0 0 18px;box-shadow:0 5px 22px #0030b80b}.tutorial-coach-top,.tutorial-coach-actions{display:flex;justify-content:space-between;align-items:center;gap:12px}.tutorial-coach-top>span{font:11px 'Fira Code',monospace;color:#0030b8;letter-spacing:.08em}.tutorial-coach-top b{margin-left:10px}.tutorial-coach h3{font-size:19px;margin:12px 0 6px}.tutorial-coach p{font-size:14px;line-height:1.6;margin:0 0 12px}.tutorial-meter{height:3px;background:#edeaf9;margin-top:8px;border-radius:5px;overflow:hidden}.tutorial-meter>span{display:block;height:100%;background:linear-gradient(90deg,#0030b8,#8600d4);transition:width .3s}.tutorial-wait{font-size:12px;color:#646779}.tutorial-target{outline:3px solid #8600d4!important;outline-offset:4px;box-shadow:0 0 0 7px #8600d41a!important}#hotspots .tutorial-target{outline:3px solid #ffd84d!important;background:#ffd84d22!important;backdrop-filter:brightness(1.25)}@media(max-width:600px){.tutorial-preview{grid-template-columns:1fr;gap:8px;margin:16px 0}.tutorial-preview article{padding:12px 16px;display:grid;grid-template-columns:36px 1fr;column-gap:8px}.tutorial-preview h3{margin:0}.tutorial-preview p{grid-column:2}.tutorial-coach{padding:12px;margin-bottom:12px}.tutorial-coach h3{font-size:16px}.tutorial-coach p{font-size:12px}.tutorial-coach .secondary,.tutorial-coach .primary{font-size:11px;padding:9px 12px}}
+/* Les zones suivent les objets de la salle de classe, sur tous les écrans. */
+#hotspots .classroom-person{left:var(--scene-x)!important;top:var(--scene-y)!important;width:var(--classroom-w);height:var(--classroom-h);right:auto;bottom:auto}
+#hotspots .notebook-hotspot{border-radius:10%}
+/* Cadres toujours visibles, dessinés selon le contour de chaque élément. */
+#hotspots .scene-item::after{display:none!important}
+#hotspots .scene-item{border-radius:0!important}
+#hotspots .scene-item>.interaction-frame{position:absolute!important;inset:0;display:block;width:100%;height:100%;overflow:visible;pointer-events:none;filter:none;z-index:5}
+.interaction-frame polygon{fill:none;stroke-linejoin:round;stroke-linecap:round;transition:stroke .18s,stroke-width .18s}
+.interaction-frame .frame-halo{stroke:#fff9ef;stroke-width:5.5;opacity:.96}
+.interaction-frame .frame-line{stroke:#7036bf;stroke-width:2.5;opacity:1}
+#hotspots .scene-item:hover .frame-line,#hotspots .scene-item:focus-visible .frame-line{stroke:#eaad19;stroke-width:4}
+#hotspots .scene-item:hover,#hotspots .scene-item:focus-visible{background:transparent!important;box-shadow:none!important;backdrop-filter:none!important}
+#hotspots .scene-item:focus-visible>.interaction-frame{filter:drop-shadow(0 0 4px #fff0a4)}
+@media(prefers-reduced-motion:reduce){.interaction-frame polygon{transition:none}}
+.interaction-frame mask polygon{fill:#000!important;stroke:#000!important;stroke-width:1.1!important;opacity:1!important}
+/* Tracés adoucis, couleurs franches et noms toujours visibles. */
+.interaction-frame path{fill:none;stroke-linejoin:round;stroke-linecap:round;transition:stroke .18s,stroke-width .18s}
+.interaction-frame .frame-halo{stroke:#fff;stroke-width:6.5!important;opacity:1}
+.interaction-frame .frame-line{stroke:#ff008f!important;stroke-width:3.5!important;opacity:1;filter:drop-shadow(0 0 2px #ff008f88)}
+#hotspots .scene-item:hover .frame-line,#hotspots .scene-item:focus-visible .frame-line{stroke:#ffec00!important;stroke-width:4.5!important}
+#hotspots .interaction-label{display:block;position:absolute;left:50%;top:calc(100% + 5px);transform:translateX(-50%);z-index:8;padding:6px 11px;border:2px solid white;border-radius:10px;background:#d60078;color:#fff!important;box-shadow:0 3px 10px #35102466;font:600 clamp(11px,.95vw,15px)/1.2 Poppins,sans-serif;white-space:nowrap;pointer-events:auto;text-align:center;text-shadow:none}
+#hotspots .scene-item:hover>.interaction-label,#hotspots .scene-item:focus-visible>.interaction-label{background:#ffec00;color:#281b38!important;border-color:#281b38}
+#hotspots .person>.interaction-label,#scene-plan>.interaction-label{top:auto;bottom:calc(100% + 5px)}
+#scene-mindmap>.interaction-label{top:auto;bottom:calc(100% + 5px);left:62%}
+#scene-revision>.interaction-label{top:auto;bottom:calc(100% + 5px)}
+#scene-notebook>.interaction-label{top:calc(100% + 4px)}
+@media(max-width:700px){#hotspots .interaction-label{font-size:12px;padding:6px 9px}}
+@media(prefers-reduced-motion:reduce){.interaction-frame path{transition:none}}
+/* Retour visuel temporaire, indépendant des contours peints dans le décor. */
+#hotspots .scene-item>.hover-light{position:absolute;inset:0;display:block;pointer-events:none;background:#d6e9ff25;backdrop-filter:brightness(1.2) saturate(1.08);-webkit-backdrop-filter:brightness(1.2) saturate(1.08);opacity:0;transition:opacity .16s ease;z-index:1}
+#hotspots .scene-item:hover>.hover-light,#hotspots .scene-item:focus-visible>.hover-light,#hotspots .scene-item:active>.hover-light{opacity:1}
+#hotspots .hub-prop,#hotspots .hub-prop:hover,#hotspots .hub-prop:focus-visible{filter:none!important}
+@media(prefers-reduced-motion:reduce){#hotspots .scene-item>.hover-light{transition:none}}

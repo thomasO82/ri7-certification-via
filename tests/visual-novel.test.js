@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {dialoguePages} from '../src/ui/visual-novel.js';
+test('les répliques sont découpées sans perdre de texte ni mélanger les paragraphes',()=>{const segments=['Thomas vous attend dans le laboratoire. '.repeat(12).trim(),'Voici votre objectif.'];const pages=dialoguePages(segments);assert.ok(pages.length>2);assert.ok(pages.every(p=>p.length<=210));assert.equal(pages.join(' '),segments.join(' '));assert.equal(pages.at(-1),segments[1]);});

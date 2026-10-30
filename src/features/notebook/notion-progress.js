@@ -1,0 +1,3 @@
+// Notions ajoutées au carnet après la slide qui les introduit.
+export const notionSlides={ia:3,ml:4,gen:7,sup:5,auto:5,rl:5,neural:6,params:6,deep:8,llm:9,stats:9,data:10,train:10,pre:11,base:11,sft:12,tuned:12,rlhf:13,reward:13,assistant:14,chatbot:14,gpu:15,compute:15,energy:15,scaling:16,infer:17,context:18,system:19,token:20,window:21,embedding:22,attention:23,transformer:25,temp:24,agi:27,synthetic:28,reason:29,distill:30,variation:31};
+export function availableNotionIds(state){const studied=new Set(state.studied||[]);return Object.entries(notionSlides).filter(([,slide])=>studied.has(slide)).map(([id])=>id);}

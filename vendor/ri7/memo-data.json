@@ -1,0 +1,2496 @@
+{
+  "enTete": {
+    "format": 8,
+    "seance": 1,
+    "titre": "Comprendre comment fonctionne l'IA générative",
+    "version": 15,
+    "date": "2026-10-21"
+  },
+  "groupes": [
+    {
+      "numero": 1,
+      "titre": "De l'IA à l'IA générative",
+      "pictogramme": "network",
+      "cartes": [
+        "ia",
+        "aa",
+        "sup",
+        "autosup",
+        "renf",
+        "rn",
+        "ap",
+        "iagen"
+      ]
+    },
+    {
+      "numero": 2,
+      "titre": "Comment on fabrique un LLM, puis un assistant",
+      "pictogramme": "factory",
+      "cartes": [
+        "llm",
+        "stat",
+        "param",
+        "train",
+        "data",
+        "pre",
+        "base",
+        "sft",
+        "ajuste",
+        "rlhf",
+        "recomp",
+        "assist",
+        "chatbot",
+        "calcul",
+        "gpu",
+        "energie",
+        "echelle"
+      ]
+    },
+    {
+      "numero": 3,
+      "titre": "Comment un LLM produit une réponse",
+      "pictogramme": "message-square-text",
+      "cartes": [
+        "inf",
+        "contexte",
+        "promptsys",
+        "token",
+        "fen",
+        "emb",
+        "attn",
+        "transf",
+        "temp"
+      ]
+    }
+  ],
+  "cartes": {
+    "ia": {
+      "id": "ia",
+      "terme": "Intelligence artificielle",
+      "termeAnglais": "",
+      "definition": "Une discipline de l'informatique qui fait accomplir à une machine des tâches qui semblent demander de l'intelligence : percevoir, prédire, décider, produire du langage.",
+      "definitionRiche": [
+        {
+          "texte": "Une ",
+          "gras": false
+        },
+        {
+          "texte": "discipline de l'informatique",
+          "gras": true
+        },
+        {
+          "texte": " qui fait accomplir à une machine des tâches qui ",
+          "gras": false
+        },
+        {
+          "texte": "semblent demander de l'intelligence",
+          "gras": true
+        },
+        {
+          "texte": " : percevoir, prédire, décider, produire du langage.",
+          "gras": false
+        }
+      ],
+      "source": "Elements of AI (université d'Helsinki) ; Google Cloud, Introduction to Generative AI",
+      "illustration": null,
+      "groupe": 1
+    },
+    "aa": {
+      "id": "aa",
+      "terme": "Apprentissage automatique",
+      "termeAnglais": "machine learning",
+      "definition": "La branche de l'IA où la machine apprend à partir d'exemples, au lieu d'appliquer des règles écrites à la main. Le résultat, un modèle, répond sur des cas jamais vus.",
+      "definitionRiche": [
+        {
+          "texte": "La branche de l'IA où la machine ",
+          "gras": false
+        },
+        {
+          "texte": "apprend à partir d'exemples",
+          "gras": true
+        },
+        {
+          "texte": ", au lieu d'appliquer des ",
+          "gras": false
+        },
+        {
+          "texte": "règles écrites à la main",
+          "gras": true
+        },
+        {
+          "texte": ". Le résultat, un ",
+          "gras": false
+        },
+        {
+          "texte": "modèle",
+          "gras": true
+        },
+        {
+          "texte": ", répond sur des cas jamais vus.",
+          "gras": false
+        }
+      ],
+      "source": "Google, Introduction to Machine Learning ; Elements of AI (université d'Helsinki)",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 250\" role=\"img\" aria-label=\"Au lieu d&#x27;écrire des règles interminables et fragiles, on montre des milliers de chiffres écrits à la main, chacun avec la bonne réponse ; le résultat de l&#x27;apprentissage, un modèle, reconnaît un chiffre jamais vu : réponse, 7.\">\n  <defs><linearGradient id=\"apprentissage-automatique-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"apprentissage-automatique-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <path d=\"M128 44 C 96 22, 54 38, 46 100 C 39 160, 68 206, 104 205 C 143 204, 161 160, 157 111 C 154 74, 141 55, 117 52\" transform=\"translate(-4 2) scale(0.22)\" fill=\"none\" stroke=\"#5C6070\" stroke-width=\"9\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n    <text x=\"46\" y=\"16\" font-size=\"13\" font-weight=\"600\" fill=\"#5C6070\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Programmation classique</text>\n    <text x=\"46\" y=\"35\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Écrire toutes les règles :</text>\n    <text x=\"46\" y=\"52\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">interminable, et fragile au premier cas imprévu.</text>\n    <line x1=\"0\" y1=\"68\" x2=\"400\" y2=\"68\" stroke=\"#14151F\" stroke-opacity=\"0.1\"/>\n    <text x=\"0\" y=\"92\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Apprentissage automatique</text>\n    <rect x=\"1\" y=\"104\" width=\"30\" height=\"30\" rx=\"7\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"16\" y=\"126.2\" font-size=\"20\" font-weight=\"300\" font-family=\"Poppins, system-ui, sans-serif\" fill=\"#14151F\" text-anchor=\"middle\" transform=\"rotate(-6 16 119)\">0</text>\n    <text x=\"16\" y=\"149\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"middle\">0</text>\n    <rect x=\"39\" y=\"104\" width=\"30\" height=\"30\" rx=\"7\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"54\" y=\"126.2\" font-size=\"20\" font-weight=\"700\" font-family=\"Poppins, system-ui, sans-serif\" fill=\"#14151F\" text-anchor=\"middle\" transform=\"rotate(3 54 119)\">6</text>\n    <text x=\"54\" y=\"149\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"middle\">6</text>\n    <rect x=\"77\" y=\"104\" width=\"30\" height=\"30\" rx=\"7\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"92\" y=\"126.2\" font-size=\"20\" font-weight=\"500\" font-style=\"italic\" font-family=\"Poppins, system-ui, sans-serif\" fill=\"#14151F\" text-anchor=\"middle\" transform=\"rotate(-2 92 119)\">1</text>\n    <text x=\"92\" y=\"149\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"middle\">1</text>\n    <rect x=\"1\" y=\"156\" width=\"30\" height=\"30\" rx=\"7\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"16\" y=\"178.2\" font-size=\"20\" font-weight=\"400\" font-family=\"'Fira Code', ui-monospace, monospace\" fill=\"#14151F\" text-anchor=\"middle\" transform=\"rotate(6 16 171)\">7</text>\n    <text x=\"16\" y=\"201\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"middle\">7</text>\n    <rect x=\"39\" y=\"156\" width=\"30\" height=\"30\" rx=\"7\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"54\" y=\"178.2\" font-size=\"20\" font-weight=\"300\" font-style=\"italic\" font-family=\"Poppins, system-ui, sans-serif\" fill=\"#14151F\" text-anchor=\"middle\" transform=\"rotate(2 54 171)\">8</text>\n    <text x=\"54\" y=\"201\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"middle\">8</text>\n    <rect x=\"77\" y=\"156\" width=\"30\" height=\"30\" rx=\"7\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"92\" y=\"178.2\" font-size=\"20\" font-weight=\"700\" font-family=\"Poppins, system-ui, sans-serif\" fill=\"#14151F\" text-anchor=\"middle\" transform=\"rotate(-3 92 171)\">0</text>\n    <text x=\"92\" y=\"201\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"middle\">0</text>\n    <text x=\"0\" y=\"224\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Des milliers d&#x27;exemples,</text>\n    <text x=\"0\" y=\"241\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">chacun avec la bonne réponse</text>\n    <line x1=\"112\" y1=\"145\" x2=\"142\" y2=\"145\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#apprentissage-automatique-fleche)\"/>\n    <rect x=\"148\" y=\"126\" width=\"108\" height=\"38\" rx=\"19.0\" fill=\"url(#apprentissage-automatique-degrade)\"/>\n    <text x=\"202.0\" y=\"150.4\" font-size=\"15\" font-weight=\"600\" fill=\"#fff\" text-anchor=\"middle\">Un modèle</text>\n    <text x=\"202\" y=\"184\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\">le résultat de</text>\n    <text x=\"202\" y=\"200\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\">l&#x27;apprentissage</text>\n    <line x1=\"262\" y1=\"145\" x2=\"304\" y2=\"145\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#apprentissage-automatique-fleche)\"/>\n    <text x=\"338\" y=\"99\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\">Un chiffre</text>\n    <text x=\"338\" y=\"114\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\">jamais vu</text>\n    <rect x=\"315\" y=\"122\" width=\"46\" height=\"46\" rx=\"9\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/>\n    <text x=\"338\" y=\"155.1\" font-size=\"28\" font-weight=\"400\" font-style=\"italic\" font-family=\"Poppins, system-ui, sans-serif\" fill=\"#14151F\" text-anchor=\"middle\" transform=\"rotate(-3 338 145)\">7</text>\n    <text x=\"338\" y=\"192\" font-size=\"15\" font-weight=\"700\" fill=\"#14151F\" text-anchor=\"middle\">Réponse : 7</text>\n  </g>\n</svg>",
+      "groupe": 1
+    },
+    "sup": {
+      "id": "sup",
+      "terme": "Apprentissage supervisé",
+      "termeAnglais": "",
+      "definition": "La façon d'apprendre où un humain fournit la bonne réponse avec chaque exemple. Exemple : des milliers d'e-mails, chacun étiqueté « indésirable » ou non.",
+      "definitionRiche": [
+        {
+          "texte": "La façon d'apprendre où ",
+          "gras": false
+        },
+        {
+          "texte": "un humain fournit la bonne réponse",
+          "gras": true
+        },
+        {
+          "texte": " avec chaque exemple. Exemple : des milliers d'e-mails, chacun étiqueté « indésirable » ou non.",
+          "gras": false
+        }
+      ],
+      "source": "Google, Introduction to Machine Learning ; Andrew Ng, AI for Everyone",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 256\" role=\"img\" aria-label=\"Des courriels accompagnés de leur étiquette, indésirable ou normal, servent d&#x27;exemples ; le modèle prédit ensuite l&#x27;étiquette d&#x27;un courriel nouveau.\">\n  <defs><linearGradient id=\"apprentissage-supervise-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"apprentissage-supervise-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <text x=\"0\" y=\"18\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Des exemples étiquetés</text>\n    <rect x=\"1\" y=\"32\" width=\"46\" height=\"32\" rx=\"6\" fill=\"#fff\" stroke=\"#5C6070\" stroke-width=\"1.75\"/>\n    <path d=\"M5 37 L24 51 L43 37\" fill=\"none\" stroke=\"#5C6070\" stroke-width=\"1.75\"/>\n    <text x=\"58\" y=\"53\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Courriel</text>\n    <line x1=\"130\" y1=\"48\" x2=\"168\" y2=\"48\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#apprentissage-supervise-fleche)\"/>\n    <rect x=\"174\" y=\"32\" width=\"130\" height=\"32\" rx=\"16.0\" fill=\"#F6EEFF\"/>\n    <text x=\"239.0\" y=\"53.04\" font-size=\"14\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"middle\">indésirable</text>\n    <rect x=\"1\" y=\"76\" width=\"46\" height=\"32\" rx=\"6\" fill=\"#fff\" stroke=\"#5C6070\" stroke-width=\"1.75\"/>\n    <path d=\"M5 81 L24 95 L43 81\" fill=\"none\" stroke=\"#5C6070\" stroke-width=\"1.75\"/>\n    <text x=\"58\" y=\"97\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Courriel</text>\n    <line x1=\"130\" y1=\"92\" x2=\"168\" y2=\"92\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#apprentissage-supervise-fleche)\"/>\n    <rect x=\"174\" y=\"76\" width=\"130\" height=\"32\" rx=\"16.0\" fill=\"#EEF2FF\"/>\n    <text x=\"239.0\" y=\"97.04\" font-size=\"14\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"middle\">normal</text>\n    <rect x=\"1\" y=\"120\" width=\"46\" height=\"32\" rx=\"6\" fill=\"#fff\" stroke=\"#5C6070\" stroke-width=\"1.75\"/>\n    <path d=\"M5 125 L24 139 L43 125\" fill=\"none\" stroke=\"#5C6070\" stroke-width=\"1.75\"/>\n    <text x=\"58\" y=\"141\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Courriel</text>\n    <line x1=\"130\" y1=\"136\" x2=\"168\" y2=\"136\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#apprentissage-supervise-fleche)\"/>\n    <rect x=\"174\" y=\"120\" width=\"130\" height=\"32\" rx=\"16.0\" fill=\"#F6EEFF\"/>\n    <text x=\"239.0\" y=\"141.04\" font-size=\"14\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"middle\">indésirable</text>\n    <line x1=\"0\" y1=\"172\" x2=\"400\" y2=\"172\" stroke=\"#14151F\" stroke-opacity=\"0.1\"/>\n    <rect x=\"1\" y=\"186\" width=\"46\" height=\"32\" rx=\"6\" fill=\"#fff\" stroke=\"#5C6070\" stroke-width=\"1.75\"/>\n    <path d=\"M5 191 L24 205 L43 191\" fill=\"none\" stroke=\"#5C6070\" stroke-width=\"1.75\"/>\n    <text x=\"58\" y=\"207\" font-size=\"14\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Nouveau</text>\n    <line x1=\"130\" y1=\"202\" x2=\"168\" y2=\"202\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#apprentissage-supervise-fleche)\"/>\n    <rect x=\"174\" y=\"186\" width=\"130\" height=\"32\" rx=\"16.0\" fill=\"#fff\" stroke=\"#5C6070\" stroke-width=\"2\" stroke-dasharray=\"5 4\"/>\n    <text x=\"239.0\" y=\"207.4\" font-size=\"15\" font-weight=\"600\" fill=\"#5C6070\" text-anchor=\"middle\">?</text>\n    <text x=\"0\" y=\"246\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Le modèle prédit l&#x27;étiquette d&#x27;un cas nouveau.</text>\n  </g>\n</svg>",
+      "groupe": 1
+    },
+    "autosup": {
+      "id": "autosup",
+      "terme": "Apprentissage autosupervisé",
+      "termeAnglais": "",
+      "definition": "La façon d'apprendre où la bonne réponse est dans les données elles-mêmes, sans humain. Exemple : « Le chat dort sur le… », dont le mot caché est « canapé ».",
+      "definitionRiche": [
+        {
+          "texte": "La façon d'apprendre où ",
+          "gras": false
+        },
+        {
+          "texte": "la bonne réponse est dans les données",
+          "gras": true
+        },
+        {
+          "texte": " elles-mêmes, sans humain. Exemple : « Le chat dort sur le… », dont le mot caché est « canapé ».",
+          "gras": false
+        }
+      ],
+      "source": "Hugging Face, LLM Course",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 186\" role=\"img\" aria-label=\"Dans « Le chat dort sur le… », on cache le dernier mot ; le texte lui-même répond « canapé » : personne n&#x27;écrit la bonne réponse.\">\n  <defs><linearGradient id=\"apprentissage-autosupervise-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"apprentissage-autosupervise-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <text x=\"0\" y=\"18\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Le mot caché est la bonne réponse</text>\n    <text x=\"0\" y=\"60\" font-size=\"17\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">« Le chat dort sur le</text>\n    <line x1=\"172\" y1=\"62\" x2=\"246\" y2=\"62\" stroke=\"#0030B8\" stroke-width=\"2\" stroke-dasharray=\"6 4\"/>\n    <text x=\"252\" y=\"60\" font-size=\"17\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">»</text>\n    <path d=\"M 209 70 C 209 86, 190 88, 180 98\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#apprentissage-autosupervise-fleche)\"/>\n    <rect x=\"131\" y=\"103\" width=\"69\" height=\"22\" rx=\"4\" fill=\"#FBF990\"/>\n    <text x=\"0\" y=\"119\" font-size=\"16\" text-anchor=\"start\"><tspan font-weight=\"400\" fill=\"#2B2E3A\">Le texte répond :</tspan><tspan dx=\"4.3\" font-weight=\"600\" fill=\"#14151F\">canapé</tspan></text>\n    <text x=\"0\" y=\"158\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Personne n&#x27;écrit la réponse :</text>\n    <text x=\"0\" y=\"177\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">elle est dans le texte lui-même.</text>\n  </g>\n</svg>",
+      "groupe": 1
+    },
+    "renf": {
+      "id": "renf",
+      "terme": "Apprentissage par renforcement",
+      "termeAnglais": "reinforcement learning",
+      "definition": "La façon d'apprendre où la machine essaie, reçoit une note, et fait mieux la fois suivante. Comme un chien qu'on récompense d'une friandise.",
+      "definitionRiche": [
+        {
+          "texte": "La façon d'apprendre où la machine ",
+          "gras": false
+        },
+        {
+          "texte": "essaie",
+          "gras": true
+        },
+        {
+          "texte": ", reçoit ",
+          "gras": false
+        },
+        {
+          "texte": "une note",
+          "gras": true
+        },
+        {
+          "texte": ", et fait mieux la fois suivante. Comme un chien qu'on récompense d'une friandise.",
+          "gras": false
+        }
+      ],
+      "source": "Google, Introduction to Machine Learning ; Hugging Face, LLM Course",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 212\" role=\"img\" aria-label=\"Trois essais successifs, chacun suivi d&#x27;une note de plus en plus haute : la bonne réponse est une note, donnée après l&#x27;essai.\">\n  <defs><linearGradient id=\"apprentissage-par-renforcement-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"apprentissage-par-renforcement-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <text x=\"0\" y=\"18\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Trois essais, une note qui monte</text>\n    <line x1=\"8\" y1=\"126\" x2=\"392\" y2=\"126\" stroke=\"#14151F\" stroke-opacity=\"0.15\"/>\n    <path d=\"M20 126 V106.8 Q20 100.8 26 100.8 H90 Q96 100.8 96 106.8 V126 Z\" fill=\"#0030B8\"/>\n    <text x=\"58\" y=\"148\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">essai 1</text>\n    <path d=\"M162 126 V81.6 Q162 75.6 168 75.6 H232 Q238 75.6 238 81.6 V126 Z\" fill=\"#0030B8\"/>\n    <text x=\"200\" y=\"148\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">essai 2</text>\n    <path d=\"M304 126 V52.2 Q304 46.2 310 46.2 H374 Q380 46.2 380 52.2 V126 Z\" fill=\"#0030B8\"/>\n    <text x=\"342\" y=\"148\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">essai 3</text>\n    <line x1=\"96\" y1=\"143\" x2=\"142\" y2=\"143\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#apprentissage-par-renforcement-fleche)\"/>\n    <line x1=\"238\" y1=\"143\" x2=\"284\" y2=\"143\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#apprentissage-par-renforcement-fleche)\"/>\n    <text x=\"0\" y=\"184\" font-size=\"14\" text-anchor=\"start\"><tspan font-weight=\"400\" fill=\"#2B2E3A\">La bonne réponse :</tspan><tspan dx=\"3.8\" font-weight=\"700\" fill=\"#14151F\">une note, après l&#x27;essai.</tspan></text>\n    <text x=\"0\" y=\"204\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Comme un chien qu&#x27;on récompense d&#x27;une friandise.</text>\n  </g>\n</svg>",
+      "groupe": 1
+    },
+    "rn": {
+      "id": "rn",
+      "terme": "Réseau de neurones",
+      "termeAnglais": "",
+      "definition": "Un assemblage d'unités de calcul très simples, rangées en couches : chacune multiplie ses entrées par des poids, additionne le tout et ajoute un biais.",
+      "definitionRiche": [
+        {
+          "texte": "Un assemblage d'",
+          "gras": false
+        },
+        {
+          "texte": "unités de calcul très simples",
+          "gras": true
+        },
+        {
+          "texte": ", rangées ",
+          "gras": false
+        },
+        {
+          "texte": "en couches",
+          "gras": true
+        },
+        {
+          "texte": " : chacune multiplie ses entrées par des poids, additionne le tout et ajoute un biais.",
+          "gras": false
+        }
+      ],
+      "source": "Google, Machine Learning Crash Course ; 3Blue1Brown",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 292\" role=\"img\" aria-label=\"Un réseau de neurones à boutons : le neurone mis en avant multiplie ses entrées 2, 5 et 1 par ses poids 0,5, 1 et −2, ajoute son biais 1 et obtient 5 (valeurs d&#x27;exemple) ; apprendre, c&#x27;est régler tous ces boutons.\">\n  <defs><linearGradient id=\"reseau-de-neurones-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"reseau-de-neurones-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <line x1=\"40\" y1=\"52\" x2=\"179\" y2=\"112\" stroke=\"#B3C3F7\" stroke-width=\"1.3\"/>\n    <line x1=\"40\" y1=\"52\" x2=\"179\" y2=\"172\" stroke=\"#B3C3F7\" stroke-width=\"2.2\"/>\n    <line x1=\"40\" y1=\"112\" x2=\"179\" y2=\"112\" stroke=\"#B3C3F7\" stroke-width=\"3.0\"/>\n    <line x1=\"40\" y1=\"112\" x2=\"179\" y2=\"172\" stroke=\"#B3C3F7\" stroke-width=\"1.5\"/>\n    <line x1=\"40\" y1=\"172\" x2=\"179\" y2=\"112\" stroke=\"#B3C3F7\" stroke-width=\"2.4\"/>\n    <line x1=\"40\" y1=\"172\" x2=\"179\" y2=\"172\" stroke=\"#B3C3F7\" stroke-width=\"3.3\"/>\n    <line x1=\"213\" y1=\"52\" x2=\"255\" y2=\"52\" stroke=\"#B3C3F7\" stroke-width=\"1.8\"/>\n    <line x1=\"213\" y1=\"52\" x2=\"255\" y2=\"112\" stroke=\"#B3C3F7\" stroke-width=\"2.7\"/>\n    <line x1=\"213\" y1=\"52\" x2=\"255\" y2=\"172\" stroke=\"#B3C3F7\" stroke-width=\"1.2\"/>\n    <line x1=\"289\" y1=\"52\" x2=\"312\" y2=\"112.0\" stroke=\"#B3C3F7\" stroke-width=\"2.1\"/>\n    <line x1=\"213\" y1=\"112\" x2=\"255\" y2=\"52\" stroke=\"#B3C3F7\" stroke-width=\"2.9\"/>\n    <line x1=\"213\" y1=\"112\" x2=\"255\" y2=\"112\" stroke=\"#B3C3F7\" stroke-width=\"1.4\"/>\n    <line x1=\"213\" y1=\"112\" x2=\"255\" y2=\"172\" stroke=\"#B3C3F7\" stroke-width=\"2.3\"/>\n    <line x1=\"289\" y1=\"112\" x2=\"312\" y2=\"112.0\" stroke=\"#B3C3F7\" stroke-width=\"3.2\"/>\n    <line x1=\"213\" y1=\"172\" x2=\"255\" y2=\"52\" stroke=\"#B3C3F7\" stroke-width=\"1.7\"/>\n    <line x1=\"213\" y1=\"172\" x2=\"255\" y2=\"112\" stroke=\"#B3C3F7\" stroke-width=\"2.6\"/>\n    <line x1=\"213\" y1=\"172\" x2=\"255\" y2=\"172\" stroke=\"#B3C3F7\" stroke-width=\"1.1\"/>\n    <line x1=\"289\" y1=\"172\" x2=\"312\" y2=\"112.0\" stroke=\"#B3C3F7\" stroke-width=\"2.0\"/>\n    <line x1=\"40\" y1=\"52\" x2=\"172.0\" y2=\"52.0\" stroke=\"#14151F\" stroke-width=\"2\"/>\n    <line x1=\"40\" y1=\"112\" x2=\"173.6\" y2=\"60.6\" stroke=\"#14151F\" stroke-width=\"2\"/>\n    <line x1=\"40\" y1=\"172\" x2=\"177.0\" y2=\"66.6\" stroke=\"#14151F\" stroke-width=\"2\"/>\n    <rect x=\"65\" y=\"41.0\" width=\"50\" height=\"22\" rx=\"11\" fill=\"#fff\" stroke=\"#14151F\" stroke-width=\"1.5\"/>\n    <text x=\"90\" y=\"56.7\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">× 0,5</text>\n    <rect x=\"65\" y=\"81.8\" width=\"50\" height=\"22\" rx=\"11\" fill=\"#fff\" stroke=\"#14151F\" stroke-width=\"1.5\"/>\n    <text x=\"90\" y=\"97.5\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">× 1</text>\n    <rect x=\"65\" y=\"122.5\" width=\"50\" height=\"22\" rx=\"11\" fill=\"#fff\" stroke=\"#14151F\" stroke-width=\"1.5\"/>\n    <text x=\"90\" y=\"138.2\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">× −2</text>\n    <rect x=\"1\" y=\"37\" width=\"39\" height=\"30\" rx=\"9\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"2\"/>\n    <text x=\"20\" y=\"57.5\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">2</text>\n    <rect x=\"1\" y=\"97\" width=\"39\" height=\"30\" rx=\"9\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"2\"/>\n    <text x=\"20\" y=\"117.5\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">5</text>\n    <rect x=\"1\" y=\"157\" width=\"39\" height=\"30\" rx=\"9\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"2\"/>\n    <text x=\"20\" y=\"177.5\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">1</text>\n    <circle cx=\"196\" cy=\"52\" r=\"17\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"2\"/>\n    <line x1=\"196\" y1=\"52\" x2=\"189.1\" y2=\"42.2\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"1\"/>\n    <circle cx=\"196\" cy=\"52\" r=\"2.5\" fill=\"#0030B8\" opacity=\"1\"/>\n    <circle cx=\"196\" cy=\"112\" r=\"17\" fill=\"#fff\" stroke=\"#B3C3F7\" stroke-width=\"2\"/>\n    <line x1=\"196\" y1=\"112\" x2=\"206.4\" y2=\"106.0\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.45\"/>\n    <circle cx=\"196\" cy=\"112\" r=\"2.5\" fill=\"#0030B8\" opacity=\"0.45\"/>\n    <circle cx=\"196\" cy=\"172\" r=\"17\" fill=\"#fff\" stroke=\"#B3C3F7\" stroke-width=\"2\"/>\n    <line x1=\"196\" y1=\"172\" x2=\"184.7\" y2=\"176.1\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.45\"/>\n    <circle cx=\"196\" cy=\"172\" r=\"2.5\" fill=\"#0030B8\" opacity=\"0.45\"/>\n    <circle cx=\"272\" cy=\"52\" r=\"17\" fill=\"#fff\" stroke=\"#B3C3F7\" stroke-width=\"2\"/>\n    <line x1=\"272\" y1=\"52\" x2=\"283.3\" y2=\"56.1\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.45\"/>\n    <circle cx=\"272\" cy=\"52\" r=\"2.5\" fill=\"#0030B8\" opacity=\"0.45\"/>\n    <circle cx=\"272\" cy=\"112\" r=\"17\" fill=\"#fff\" stroke=\"#B3C3F7\" stroke-width=\"2\"/>\n    <line x1=\"272\" y1=\"112\" x2=\"260.7\" y2=\"107.9\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.45\"/>\n    <circle cx=\"272\" cy=\"112\" r=\"2.5\" fill=\"#0030B8\" opacity=\"0.45\"/>\n    <circle cx=\"272\" cy=\"172\" r=\"17\" fill=\"#fff\" stroke=\"#B3C3F7\" stroke-width=\"2\"/>\n    <line x1=\"272\" y1=\"172\" x2=\"277.1\" y2=\"161.1\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\" opacity=\"0.45\"/>\n    <circle cx=\"272\" cy=\"172\" r=\"2.5\" fill=\"#0030B8\" opacity=\"0.45\"/>\n    <circle cx=\"196\" cy=\"52\" r=\"23\" fill=\"none\" stroke=\"#8600D4\" stroke-width=\"2.5\"/>\n    <text x=\"196\" y=\"18\" font-size=\"14\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">biais + 1</text>\n    <rect x=\"312\" y=\"97\" width=\"84\" height=\"30\" rx=\"15.0\" fill=\"url(#reseau-de-neurones-degrade)\"/>\n    <text x=\"354.0\" y=\"116.68\" font-size=\"13\" font-weight=\"600\" fill=\"#fff\" text-anchor=\"middle\">Prédiction</text>\n    <text x=\"0\" y=\"208\" font-size=\"12\" font-weight=\"400\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">entrées</text>\n    <text x=\"234.0\" y=\"208\" font-size=\"12\" font-weight=\"400\" fill=\"#0030B8\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">couches</text>\n    <text x=\"354.0\" y=\"208\" font-size=\"12\" font-weight=\"400\" fill=\"#0030B8\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">sortie</text>\n    <rect x=\"281.5\" y=\"224\" width=\"13\" height=\"19\" rx=\"3\" fill=\"#FBF990\"/>\n    <text x=\"0\" y=\"238\" font-size=\"14\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\"><tspan font-weight=\"400\" fill=\"#14151F\">2 ×</tspan><tspan dx=\"8.6\" font-weight=\"400\" fill=\"#0030B8\">0,5</tspan><tspan dx=\"8.6\" font-weight=\"400\" fill=\"#14151F\">+ 5 ×</tspan><tspan dx=\"8.6\" font-weight=\"400\" fill=\"#0030B8\">1</tspan><tspan dx=\"8.6\" font-weight=\"400\" fill=\"#14151F\">+ 1 × (</tspan><tspan font-weight=\"400\" fill=\"#0030B8\">−2</tspan><tspan font-weight=\"400\" fill=\"#14151F\">) +</tspan><tspan dx=\"8.6\" font-weight=\"400\" fill=\"#8600D4\">1</tspan><tspan dx=\"8.6\" font-weight=\"400\" fill=\"#14151F\">=</tspan><tspan dx=\"8.6\" font-weight=\"600\" fill=\"#14151F\">5</tspan></text>\n    <text x=\"294\" y=\"257\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">valeurs d&#x27;exemple</text>\n    <text x=\"0\" y=\"284\" font-size=\"14\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Apprendre, c&#x27;est régler tous ces boutons.</text>\n  </g>\n</svg>",
+      "groupe": 1
+    },
+    "ap": {
+      "id": "ap",
+      "terme": "Apprentissage profond",
+      "termeAnglais": "deep learning",
+      "definition": "La partie de l'apprentissage automatique où la machine qui apprend est un réseau de neurones à nombreuses couches. C'est la technique qui domine aujourd'hui.",
+      "definitionRiche": [
+        {
+          "texte": "La partie de l'apprentissage automatique où la machine qui apprend est un réseau de neurones à ",
+          "gras": false
+        },
+        {
+          "texte": "nombreuses couches",
+          "gras": true
+        },
+        {
+          "texte": ". C'est la technique qui ",
+          "gras": false
+        },
+        {
+          "texte": "domine aujourd'hui",
+          "gras": true
+        },
+        {
+          "texte": ".",
+          "gras": false
+        }
+      ],
+      "source": "Google Cloud, Introduction to Generative AI ; Microsoft Learn, AI Fluency",
+      "illustration": null,
+      "groupe": 1
+    },
+    "iagen": {
+      "id": "iagen",
+      "terme": "IA générative",
+      "termeAnglais": "",
+      "definition": "Les modèles qui créent un contenu nouveau, texte, image, son, vidéo ou code, au lieu de classer ou de prévoir. Exemple : un e-mail qui n'existait pas.",
+      "definitionRiche": [
+        {
+          "texte": "Les modèles qui ",
+          "gras": false
+        },
+        {
+          "texte": "créent un contenu nouveau",
+          "gras": true
+        },
+        {
+          "texte": ", texte, image, son, vidéo ou code, au lieu de ",
+          "gras": false
+        },
+        {
+          "texte": "classer ou de prévoir",
+          "gras": true
+        },
+        {
+          "texte": ". Exemple : un e-mail qui n'existait pas.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire ML de Google ; Google Cloud, Introduction to Generative AI ; Anthropic, AI Fluency",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 252\" role=\"img\" aria-label=\"Des cercles emboîtés : l&#x27;intelligence artificielle contient l&#x27;apprentissage automatique, qui contient l&#x27;apprentissage profond, qui contient l&#x27;IA générative ; au centre, le LLM.\">\n  <defs><linearGradient id=\"ia-generative-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"ia-generative-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <ellipse cx=\"200\" cy=\"127\" rx=\"198\" ry=\"121\" fill=\"#fff\" stroke=\"#B3C3F7\" stroke-width=\"2\"/>\n    <ellipse cx=\"200\" cy=\"150\" rx=\"168\" ry=\"98\" fill=\"#EEF2FF\" stroke=\"#B3C3F7\" stroke-width=\"2\"/>\n    <ellipse cx=\"200\" cy=\"176\" rx=\"132\" ry=\"72\" fill=\"#F6EEFF\" stroke=\"#D9B8FF\" stroke-width=\"2\"/>\n    <ellipse cx=\"200\" cy=\"200\" rx=\"86\" ry=\"48\" fill=\"url(#ia-generative-degrade)\"/>\n    <text x=\"200\" y=\"36\" font-size=\"14\" font-weight=\"600\" fill=\"#2B2E3A\" text-anchor=\"middle\">Intelligence artificielle</text>\n    <text x=\"200\" y=\"82\" font-size=\"14\" font-weight=\"600\" fill=\"#2B2E3A\" text-anchor=\"middle\">Apprentissage automatique</text>\n    <text x=\"200\" y=\"130\" font-size=\"14\" font-weight=\"600\" fill=\"#2B2E3A\" text-anchor=\"middle\">Apprentissage profond</text>\n    <text x=\"200\" y=\"184\" font-size=\"15\" font-weight=\"700\" fill=\"#fff\" text-anchor=\"middle\">IA générative</text>\n    <circle cx=\"200\" cy=\"207\" r=\"5.5\" fill=\"#fff\"/>\n    <text x=\"200\" y=\"229\" font-size=\"14\" font-weight=\"700\" fill=\"#fff\" text-anchor=\"middle\">LLM</text>\n  </g>\n</svg>",
+      "groupe": 1
+    },
+    "llm": {
+      "id": "llm",
+      "terme": "LLM",
+      "termeAnglais": "large language model",
+      "definition": "Un modèle de langage qui a appris sur d'immenses textes et qui prédit la suite d'un texte, même quand il répond. Comme la saisie prédictive, en bien plus puissant.",
+      "definitionRiche": [
+        {
+          "texte": "Un modèle de langage qui a appris sur d'",
+          "gras": false
+        },
+        {
+          "texte": "immenses textes",
+          "gras": true
+        },
+        {
+          "texte": " et qui ",
+          "gras": false
+        },
+        {
+          "texte": "prédit la suite d'un texte",
+          "gras": true
+        },
+        {
+          "texte": ", même quand il répond. Comme la saisie prédictive, en bien plus puissant.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire d'Anthropic ; Google Cloud, Introduction to Large Language Models ; Microsoft Learn, AI concepts",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 262\" role=\"img\" aria-label=\"La saisie prédictive d&#x27;un téléphone : après « Je vous envoie le », elle propose document, dossier ou lien ; on choisit dossier, puis complet, puis demain : « Je vous envoie le dossier complet demain ». Un LLM prédit ainsi la suite d&#x27;un texte, morceau par morceau.\">\n  <defs><linearGradient id=\"llm-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"llm-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <text x=\"0\" y=\"18\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Il prédit la suite, morceau par morceau</text>\n    <text x=\"0\" y=\"48\" font-size=\"15\" text-anchor=\"start\"><tspan font-weight=\"400\" fill=\"#14151F\">Je vous envoie le</tspan></text>\n    <rect x=\"130.6\" y=\"34\" width=\"2\" height=\"18\" fill=\"#0030B8\"/>\n    <rect x=\"1\" y=\"58\" width=\"100\" height=\"26\" rx=\"13.0\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"2\"/>\n    <text x=\"51.0\" y=\"75.68\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\">document</text>\n    <rect x=\"109\" y=\"58\" width=\"100\" height=\"26\" rx=\"13.0\" fill=\"url(#llm-degrade)\"/>\n    <text x=\"159.0\" y=\"75.68\" font-size=\"13\" font-weight=\"600\" fill=\"#fff\" text-anchor=\"middle\">dossier</text>\n    <rect x=\"217\" y=\"58\" width=\"100\" height=\"26\" rx=\"13.0\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"2\"/>\n    <text x=\"267.0\" y=\"75.68\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\">lien</text>\n    <text x=\"0\" y=\"112\" font-size=\"15\" text-anchor=\"start\"><tspan font-weight=\"400\" fill=\"#14151F\">Je vous envoie le</tspan><tspan dx=\"4.0\" font-weight=\"600\" fill=\"#0030B8\">dossier</tspan></text>\n    <rect x=\"190.4\" y=\"98\" width=\"2\" height=\"18\" fill=\"#0030B8\"/>\n    <rect x=\"1\" y=\"122\" width=\"100\" height=\"26\" rx=\"13.0\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"2\"/>\n    <text x=\"51.0\" y=\"139.68\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\">demain</text>\n    <rect x=\"109\" y=\"122\" width=\"100\" height=\"26\" rx=\"13.0\" fill=\"url(#llm-degrade)\"/>\n    <text x=\"159.0\" y=\"139.68\" font-size=\"13\" font-weight=\"600\" fill=\"#fff\" text-anchor=\"middle\">complet</text>\n    <rect x=\"217\" y=\"122\" width=\"100\" height=\"26\" rx=\"13.0\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"2\"/>\n    <text x=\"267.0\" y=\"139.68\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\">signé</text>\n    <text x=\"0\" y=\"176\" font-size=\"15\" text-anchor=\"start\"><tspan font-weight=\"400\" fill=\"#14151F\">Je vous envoie le</tspan><tspan dx=\"4.0\" font-weight=\"600\" fill=\"#0030B8\">dossier</tspan><tspan dx=\"4.0\" font-weight=\"600\" fill=\"#0030B8\">complet</tspan></text>\n    <rect x=\"257.8\" y=\"162\" width=\"2\" height=\"18\" fill=\"#0030B8\"/>\n    <rect x=\"1\" y=\"186\" width=\"100\" height=\"26\" rx=\"13.0\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"2\"/>\n    <text x=\"51.0\" y=\"203.68\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\">par e-mail</text>\n    <rect x=\"109\" y=\"186\" width=\"100\" height=\"26\" rx=\"13.0\" fill=\"url(#llm-degrade)\"/>\n    <text x=\"159.0\" y=\"203.68\" font-size=\"13\" font-weight=\"600\" fill=\"#fff\" text-anchor=\"middle\">demain</text>\n    <rect x=\"217\" y=\"186\" width=\"100\" height=\"26\" rx=\"13.0\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"2\"/>\n    <text x=\"267.0\" y=\"203.68\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"middle\">ce soir</text>\n    <rect x=\"0\" y=\"226\" width=\"344\" height=\"34\" rx=\"10\" fill=\"#EEF2FF\"/>\n    <text x=\"12\" y=\"248\" font-size=\"15\" text-anchor=\"start\"><tspan font-weight=\"400\" fill=\"#14151F\">Je vous envoie le</tspan><tspan dx=\"4.0\" font-weight=\"600\" fill=\"#0030B8\">dossier complet demain</tspan></text>\n  </g>\n</svg>",
+      "groupe": 2
+    },
+    "stat": {
+      "id": "stat",
+      "terme": "Modèle statistique",
+      "termeAnglais": "",
+      "definition": "Un modèle qui calcule des probabilités au lieu d'appliquer des règles ou de consulter une base de faits. Après « Je vous envoie le », « dossier » est plus probable que « canapé ».",
+      "definitionRiche": [
+        {
+          "texte": "Un modèle qui ",
+          "gras": false
+        },
+        {
+          "texte": "calcule des probabilités",
+          "gras": true
+        },
+        {
+          "texte": " au lieu d'appliquer des règles ou de consulter une base de faits. Après « Je vous envoie le », « dossier » est plus probable que « canapé ».",
+          "gras": false
+        }
+      ],
+      "source": "Google Cloud, Introduction to Generative AI ; glossaire ML de Google ; Karpathy, Deep Dive into LLMs",
+      "illustration": null,
+      "groupe": 2
+    },
+    "param": {
+      "id": "param",
+      "terme": "Paramètres",
+      "termeAnglais": "",
+      "definition": "Les poids et les biais d'un réseau de neurones : des boutons que l'apprentissage règle. GPT-3, en 2020, en comptait 175 milliards.",
+      "definitionRiche": [
+        {
+          "texte": "Les ",
+          "gras": false
+        },
+        {
+          "texte": "poids et les biais",
+          "gras": true
+        },
+        {
+          "texte": " d'un réseau de neurones : des boutons que l'apprentissage règle. GPT-3, en 2020, en comptait ",
+          "gras": false
+        },
+        {
+          "texte": "175 milliards",
+          "gras": true
+        },
+        {
+          "texte": ".",
+          "gras": false
+        }
+      ],
+      "source": "glossaire ML de Google ; Brown et al. (2020)",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 282\" role=\"img\" aria-label=\"Un petit réseau de neurones à boutons, où chaque trait est un poids et chaque bouton un biais : GPT-3 en compte 175 milliards, et c&#x27;est l&#x27;entraînement qui les règle, pas une personne.\">\n  <defs><linearGradient id=\"parametres-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"parametres-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <line x1=\"8\" y1=\"44\" x2=\"113\" y2=\"44\" stroke=\"#B3C3F7\" stroke-width=\"1.2\"/>\n    <line x1=\"8\" y1=\"44\" x2=\"113\" y2=\"84\" stroke=\"#B3C3F7\" stroke-width=\"3.6\"/>\n    <line x1=\"8\" y1=\"44\" x2=\"113\" y2=\"124\" stroke=\"#B3C3F7\" stroke-width=\"2.0\"/>\n    <line x1=\"8\" y1=\"84\" x2=\"113\" y2=\"44\" stroke=\"#B3C3F7\" stroke-width=\"4.4\"/>\n    <line x1=\"8\" y1=\"84\" x2=\"113\" y2=\"84\" stroke=\"#B3C3F7\" stroke-width=\"1.4\"/>\n    <line x1=\"8\" y1=\"84\" x2=\"113\" y2=\"124\" stroke=\"#B3C3F7\" stroke-width=\"2.8\"/>\n    <line x1=\"8\" y1=\"124\" x2=\"113\" y2=\"44\" stroke=\"#B3C3F7\" stroke-width=\"1.0\"/>\n    <line x1=\"8\" y1=\"124\" x2=\"113\" y2=\"84\" stroke=\"#B3C3F7\" stroke-width=\"3.8\"/>\n    <line x1=\"8\" y1=\"124\" x2=\"113\" y2=\"124\" stroke=\"#B3C3F7\" stroke-width=\"2.2\"/>\n    <line x1=\"143\" y1=\"44\" x2=\"213\" y2=\"44\" stroke=\"#B3C3F7\" stroke-width=\"1.6\"/>\n    <line x1=\"143\" y1=\"44\" x2=\"213\" y2=\"84\" stroke=\"#B3C3F7\" stroke-width=\"4.0\"/>\n    <line x1=\"143\" y1=\"44\" x2=\"213\" y2=\"124\" stroke=\"#B3C3F7\" stroke-width=\"2.4\"/>\n    <line x1=\"143\" y1=\"84\" x2=\"213\" y2=\"44\" stroke=\"#B3C3F7\" stroke-width=\"1.2\"/>\n    <line x1=\"143\" y1=\"84\" x2=\"213\" y2=\"84\" stroke=\"#B3C3F7\" stroke-width=\"3.0\"/>\n    <line x1=\"143\" y1=\"84\" x2=\"213\" y2=\"124\" stroke=\"#B3C3F7\" stroke-width=\"1.8\"/>\n    <line x1=\"143\" y1=\"124\" x2=\"213\" y2=\"44\" stroke=\"#B3C3F7\" stroke-width=\"4.6\"/>\n    <line x1=\"143\" y1=\"124\" x2=\"213\" y2=\"84\" stroke=\"#B3C3F7\" stroke-width=\"2.0\"/>\n    <line x1=\"143\" y1=\"124\" x2=\"213\" y2=\"124\" stroke=\"#B3C3F7\" stroke-width=\"1.4\"/>\n    <line x1=\"243\" y1=\"44\" x2=\"300\" y2=\"84\" stroke=\"#B3C3F7\" stroke-width=\"3.2\"/>\n    <line x1=\"243\" y1=\"84\" x2=\"300\" y2=\"84\" stroke=\"#B3C3F7\" stroke-width=\"1.6\"/>\n    <line x1=\"243\" y1=\"124\" x2=\"300\" y2=\"84\" stroke=\"#B3C3F7\" stroke-width=\"2.6\"/>\n    <line x1=\"8\" y1=\"44\" x2=\"113\" y2=\"44\" stroke=\"#8600D4\" stroke-width=\"4.5\"/>\n    <circle cx=\"8\" cy=\"44\" r=\"6\" fill=\"#fff\" stroke=\"#5C6070\" stroke-width=\"2\"/>\n    <circle cx=\"8\" cy=\"84\" r=\"6\" fill=\"#fff\" stroke=\"#5C6070\" stroke-width=\"2\"/>\n    <circle cx=\"8\" cy=\"124\" r=\"6\" fill=\"#fff\" stroke=\"#5C6070\" stroke-width=\"2\"/>\n    <circle cx=\"128\" cy=\"44\" r=\"15\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"2.5\"/>\n    <line x1=\"128\" y1=\"44\" x2=\"118.5\" y2=\"38.5\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"128\" cy=\"44\" r=\"2.4\" fill=\"#0030B8\"/>\n    <circle cx=\"128\" cy=\"84\" r=\"15\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"2.5\"/>\n    <line x1=\"128\" y1=\"84\" x2=\"134.3\" y2=\"75.0\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"128\" cy=\"84\" r=\"2.4\" fill=\"#0030B8\"/>\n    <circle cx=\"128\" cy=\"124\" r=\"15\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"2.5\"/>\n    <line x1=\"128\" y1=\"124\" x2=\"137.5\" y2=\"129.5\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"128\" cy=\"124\" r=\"2.4\" fill=\"#0030B8\"/>\n    <circle cx=\"228\" cy=\"44\" r=\"15\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"2.5\"/>\n    <line x1=\"228\" y1=\"44\" x2=\"224.2\" y2=\"33.7\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"228\" cy=\"44\" r=\"2.4\" fill=\"#0030B8\"/>\n    <circle cx=\"228\" cy=\"84\" r=\"15\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"2.5\"/>\n    <line x1=\"228\" y1=\"84\" x2=\"238.6\" y2=\"81.2\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"228\" cy=\"84\" r=\"2.4\" fill=\"#0030B8\"/>\n    <circle cx=\"228\" cy=\"124\" r=\"15\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"2.5\"/>\n    <line x1=\"228\" y1=\"124\" x2=\"217.7\" y2=\"127.8\" stroke=\"#0030B8\" stroke-width=\"2.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"228\" cy=\"124\" r=\"2.4\" fill=\"#0030B8\"/>\n    <circle cx=\"228\" cy=\"44\" r=\"21\" fill=\"none\" stroke=\"#8600D4\" stroke-width=\"2.5\"/>\n    <text x=\"64\" y=\"32\" font-size=\"13\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"middle\">un poids</text>\n    <text x=\"255\" y=\"26\" font-size=\"13\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"start\">un biais</text>\n    <rect x=\"300\" y=\"69\" width=\"92\" height=\"30\" rx=\"15.0\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"2\"/>\n    <text x=\"346.0\" y=\"89.04\" font-size=\"14\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"middle\">Prédiction</text>\n    <text x=\"200\" y=\"166\" font-size=\"14\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"middle\">Apprendre, c&#x27;est régler tous ces boutons.</text>\n    <line x1=\"0\" y1=\"184\" x2=\"400\" y2=\"184\" stroke=\"#14151F\" stroke-opacity=\"0.1\"/>\n    <text x=\"0\" y=\"220\" font-size=\"24\" font-weight=\"700\" fill=\"url(#parametres-degrade)\" text-anchor=\"start\">175 milliards</text>\n    <text x=\"164\" y=\"201\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">de paramètres</text>\n    <text x=\"164\" y=\"220\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">dans GPT-3 (2020)</text>\n    <text x=\"0\" y=\"254\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Personne ne les tourne à la main :</text>\n    <text x=\"0\" y=\"273\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">l&#x27;entraînement les règle.</text>\n  </g>\n</svg>",
+      "groupe": 2
+    },
+    "train": {
+      "id": "train",
+      "terme": "Entraînement",
+      "termeAnglais": "",
+      "definition": "Le moment où le modèle apprend, en trois phases, par une boucle : prédire, mesurer l'erreur, tourner chaque bouton d'un tout petit peu, recommencer, des milliards de fois.",
+      "definitionRiche": [
+        {
+          "texte": "Le ",
+          "gras": false
+        },
+        {
+          "texte": "moment où le modèle apprend",
+          "gras": true
+        },
+        {
+          "texte": ", en trois phases, par une ",
+          "gras": false
+        },
+        {
+          "texte": "boucle",
+          "gras": true
+        },
+        {
+          "texte": " : prédire, mesurer l'erreur, tourner chaque bouton d'un tout petit peu, recommencer, des milliards de fois.",
+          "gras": false
+        }
+      ],
+      "source": "Google, Introduction to Machine Learning ; 3Blue1Brown ; Karpathy, Deep Dive into LLMs",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 260\" role=\"img\" aria-label=\"La boucle de l'entraînement : prédire, mesurer l'erreur, ajuster un peu les paramètres, et recommencer.\">\n  <defs>\n    <linearGradient id=\"entrainement-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient>\n    <marker id=\"entrainement-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker>\n  </defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\" text-anchor=\"middle\">\n    <!-- La boucle : trois étapes sur un cercle, reliées dans le sens de la lecture. -->\n    <path d=\"M 252 56 A 92 92 0 0 1 286 170\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"2.5\" marker-end=\"url(#entrainement-fleche)\"/>\n    <path d=\"M 236 214 A 92 92 0 0 1 184 219\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"2.5\" marker-end=\"url(#entrainement-fleche)\"/>\n    <path d=\"M 114 170 A 92 92 0 0 1 148 56\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"2.5\" marker-end=\"url(#entrainement-fleche)\"/>\n    <rect x=\"135\" y=\"14\" width=\"130\" height=\"42\" rx=\"21\" fill=\"url(#entrainement-degrade)\"/>\n    <text x=\"200\" y=\"41\" font-size=\"17\" font-weight=\"600\" fill=\"#fff\">Prédire</text>\n    <rect x=\"226\" y=\"172\" width=\"166\" height=\"42\" rx=\"21\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"2\"/>\n    <text x=\"309\" y=\"199\" font-size=\"16\" font-weight=\"600\" fill=\"#14151F\">Mesurer l'erreur</text>\n    <rect x=\"8\" y=\"172\" width=\"166\" height=\"62\" rx=\"21\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"2\"/>\n    <text x=\"91\" y=\"198\" font-size=\"16\" font-weight=\"600\" fill=\"#14151F\">Ajuster un peu</text>\n    <text x=\"91\" y=\"220\" font-size=\"16\" font-weight=\"600\" fill=\"#14151F\">les paramètres</text>\n    <text x=\"200\" y=\"118\" font-size=\"15\" fill=\"#5C6070\">et l'on</text>\n    <text x=\"200\" y=\"138\" font-size=\"15\" fill=\"#5C6070\">recommence</text>\n  </g>\n</svg>",
+      "groupe": 2
+    },
+    "data": {
+      "id": "data",
+      "terme": "Données d'entraînement",
+      "termeAnglais": "",
+      "definition": "Les textes sur lesquels le modèle apprend : une immense sélection, surtout du web, filtrée. Son savoir, ses lacunes et ses préjugés en viennent.",
+      "definitionRiche": [
+        {
+          "texte": "Les textes sur lesquels le modèle apprend : une ",
+          "gras": false
+        },
+        {
+          "texte": "immense sélection",
+          "gras": true
+        },
+        {
+          "texte": ", surtout du web, ",
+          "gras": false
+        },
+        {
+          "texte": "filtrée",
+          "gras": true
+        },
+        {
+          "texte": ". Son savoir, ses lacunes et ses ",
+          "gras": false
+        },
+        {
+          "texte": "préjugés",
+          "gras": true
+        },
+        {
+          "texte": " en viennent.",
+          "gras": false
+        }
+      ],
+      "source": "Karpathy, Deep Dive into LLMs ; Hugging Face, FineWeb",
+      "illustration": null,
+      "groupe": 2
+    },
+    "pre": {
+      "id": "pre",
+      "terme": "Préentraînement",
+      "termeAnglais": "",
+      "definition": "La première phase de fabrication, la plus longue et la plus coûteuse : sur d'immenses textes, le modèle apprend à deviner le token suivant.",
+      "definitionRiche": [
+        {
+          "texte": "La ",
+          "gras": false
+        },
+        {
+          "texte": "première phase",
+          "gras": true
+        },
+        {
+          "texte": " de fabrication, la plus longue et la plus coûteuse : sur d'immenses textes, le modèle apprend à ",
+          "gras": false
+        },
+        {
+          "texte": "deviner le token suivant",
+          "gras": true
+        },
+        {
+          "texte": ".",
+          "gras": false
+        }
+      ],
+      "source": "glossaire d'Anthropic ; glossaire ML de Google ; Karpathy, Deep Dive into LLMs",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 300\" role=\"img\" aria-label=\"D&#x27;immenses textes, surtout du web, filtrés ; le préentraînement apprend sur eux une seule tâche, deviner le token suivant de « … le chat dort sur le » ; il en sort le modèle de base.\">\n  <defs><linearGradient id=\"preentrainement-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"preentrainement-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <rect x=\"1\" y=\"1\" width=\"398\" height=\"73\" rx=\"14\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"16\" y=\"24\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Les données</text>\n    <text x=\"16\" y=\"46\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">Une immense sélection de textes,</text>\n    <text x=\"16\" y=\"65\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">surtout du web, filtrée.</text>\n    <rect x=\"296\" y=\"13\" width=\"34\" height=\"6\" rx=\"3\" fill=\"#B3C3F7\"/>\n    <rect x=\"296\" y=\"24\" width=\"34\" height=\"6\" rx=\"3\" fill=\"#B3C3F7\"/>\n    <rect x=\"296\" y=\"35\" width=\"34\" height=\"6\" rx=\"3\" fill=\"#B3C3F7\"/>\n    <rect x=\"296\" y=\"46\" width=\"34\" height=\"6\" rx=\"3\" fill=\"#B3C3F7\"/>\n    <rect x=\"296\" y=\"57\" width=\"34\" height=\"6\" rx=\"3\" fill=\"#B3C3F7\"/>\n    <rect x=\"350\" y=\"13\" width=\"34\" height=\"6\" rx=\"3\" fill=\"#B3C3F7\"/>\n    <rect x=\"350\" y=\"35\" width=\"38\" height=\"6\" rx=\"3\" fill=\"#B3C3F7\"/>\n    <rect x=\"350\" y=\"46\" width=\"30\" height=\"6\" rx=\"3\" fill=\"#B3C3F7\"/>\n    <rect x=\"335\" y=\"8\" width=\"9\" height=\"58\" rx=\"4.5\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"2.5\"/>\n    <line x1=\"200\" y1=\"78\" x2=\"200\" y2=\"93\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#preentrainement-fleche)\"/>\n    <rect x=\"1\" y=\"100\" width=\"398\" height=\"86\" rx=\"14\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"16\" y=\"124\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Phase 1 · Préentraînement</text>\n    <rect x=\"16\" y=\"136\" width=\"214\" height=\"38\" rx=\"10\" fill=\"#EEF2FF\"/>\n    <text x=\"28\" y=\"160\" font-size=\"15\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">… le chat dort sur le</text>\n    <rect x=\"180\" y=\"145\" width=\"38\" height=\"20\" rx=\"5\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/>\n    <text x=\"246\" y=\"151\" font-size=\"14\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Deviner</text>\n    <text x=\"246\" y=\"170\" font-size=\"14\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">le token suivant</text>\n    <line x1=\"200\" y1=\"190\" x2=\"200\" y2=\"205\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#preentrainement-fleche)\"/>\n    <rect x=\"1\" y=\"212\" width=\"398\" height=\"84\" rx=\"14\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"2\"/>\n    <text x=\"16\" y=\"236\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Le modèle de base</text>\n    <text x=\"16\" y=\"260\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">Il sait beaucoup : son savoir</text>\n    <text x=\"16\" y=\"279\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">est dans ses paramètres.</text>\n    <line x1=\"343.7\" y1=\"245.2\" x2=\"358.0\" y2=\"239.7\" stroke=\"#0030B8\" stroke-width=\"1.2\" stroke-opacity=\"0.5\"/>\n    <line x1=\"343.7\" y1=\"245.2\" x2=\"358.0\" y2=\"254.0\" stroke=\"#0030B8\" stroke-width=\"1.2\" stroke-opacity=\"0.5\"/>\n    <line x1=\"343.7\" y1=\"245.2\" x2=\"358.0\" y2=\"268.3\" stroke=\"#0030B8\" stroke-width=\"1.2\" stroke-opacity=\"0.5\"/>\n    <line x1=\"343.7\" y1=\"262.8\" x2=\"358.0\" y2=\"239.7\" stroke=\"#0030B8\" stroke-width=\"1.2\" stroke-opacity=\"0.5\"/>\n    <line x1=\"343.7\" y1=\"262.8\" x2=\"358.0\" y2=\"254.0\" stroke=\"#0030B8\" stroke-width=\"1.2\" stroke-opacity=\"0.5\"/>\n    <line x1=\"343.7\" y1=\"262.8\" x2=\"358.0\" y2=\"268.3\" stroke=\"#0030B8\" stroke-width=\"1.2\" stroke-opacity=\"0.5\"/>\n    <line x1=\"358.0\" y1=\"239.7\" x2=\"372.3\" y2=\"254.0\" stroke=\"#0030B8\" stroke-width=\"1.2\" stroke-opacity=\"0.5\"/>\n    <line x1=\"358.0\" y1=\"254.0\" x2=\"372.3\" y2=\"254.0\" stroke=\"#0030B8\" stroke-width=\"1.2\" stroke-opacity=\"0.5\"/>\n    <line x1=\"358.0\" y1=\"268.3\" x2=\"372.3\" y2=\"254.0\" stroke=\"#0030B8\" stroke-width=\"1.2\" stroke-opacity=\"0.5\"/>\n    <circle cx=\"343.7\" cy=\"245.2\" r=\"4.4\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"1.8\"/>\n    <circle cx=\"343.7\" cy=\"262.8\" r=\"4.4\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"1.8\"/>\n    <circle cx=\"358.0\" cy=\"239.7\" r=\"4.4\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"1.8\"/>\n    <circle cx=\"358.0\" cy=\"254.0\" r=\"4.4\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"1.8\"/>\n    <circle cx=\"358.0\" cy=\"268.3\" r=\"4.4\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"1.8\"/>\n    <circle cx=\"372.3\" cy=\"254.0\" r=\"4.4\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"1.8\"/>\n  </g>\n</svg>",
+      "groupe": 2
+    },
+    "base": {
+      "id": "base",
+      "terme": "Modèle de base",
+      "termeAnglais": "",
+      "definition": "Le modèle issu du préentraînement : il sait beaucoup, mais continue le texte au lieu de répondre. Interrogé sur la capitale de la France, il écrit la suite d'un questionnaire.",
+      "definitionRiche": [
+        {
+          "texte": "Le modèle issu du préentraînement : il ",
+          "gras": false
+        },
+        {
+          "texte": "sait beaucoup",
+          "gras": true
+        },
+        {
+          "texte": ", mais ",
+          "gras": false
+        },
+        {
+          "texte": "continue le texte",
+          "gras": true
+        },
+        {
+          "texte": " au lieu de répondre. Interrogé sur la capitale de la France, il écrit la suite d'un questionnaire.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire d'Anthropic ; Karpathy, Deep Dive into LLMs ; Andrew Ng, Generative AI for Everyone",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 188\" role=\"img\" aria-label=\"À « Quelle est la capitale de la France ? », le modèle de base écrit la suite « A : Lyon · B : Paris · C : Marseille » : il continue le texte au lieu de répondre.\">\n  <defs><linearGradient id=\"modele-de-base-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"modele-de-base-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <rect x=\"1\" y=\"1\" width=\"398\" height=\"100\" rx=\"16\" fill=\"#EEF2FF\"/>\n    <text x=\"18\" y=\"40\" font-size=\"15\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">Quelle est la capitale de la France ?</text>\n    <text x=\"384\" y=\"40\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">vous</text>\n    <text x=\"18\" y=\"76\" font-size=\"15\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\">A : Lyon · B : Paris · C : Marseille</text>\n    <line x1=\"252\" y1=\"61\" x2=\"252\" y2=\"81\" stroke=\"#0030B8\" stroke-width=\"2\"/>\n    <text x=\"384\" y=\"76\" font-size=\"12\" font-weight=\"400\" fill=\"#8600D4\" text-anchor=\"end\">le modèle</text>\n    <text x=\"0\" y=\"134\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Comme le clavier du téléphone,</text>\n    <text x=\"0\" y=\"154\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">il continue le texte :</text>\n    <text x=\"0\" y=\"178\" font-size=\"16\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">il sait, mais il ne répond pas.</text>\n  </g>\n</svg>",
+      "groupe": 2
+    },
+    "sft": {
+      "id": "sft",
+      "terme": "Ajustement supervisé",
+      "termeAnglais": "supervised fine-tuning",
+      "definition": "La deuxième phase : on poursuit l'entraînement sur des milliers d'exemples de conversations, écrits par des personnes. Le modèle apprend à répondre en les imitant.",
+      "definitionRiche": [
+        {
+          "texte": "La deuxième phase : on poursuit l'entraînement sur des milliers d'",
+          "gras": false
+        },
+        {
+          "texte": "exemples de conversations",
+          "gras": true
+        },
+        {
+          "texte": ", ",
+          "gras": false
+        },
+        {
+          "texte": "écrits par des personnes",
+          "gras": true
+        },
+        {
+          "texte": ". Le modèle apprend à répondre en les imitant.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire d'Anthropic ; glossaire ML de Google ; OpenAI, InstructGPT (2022)",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 292\" role=\"img\" aria-label=\"Avant, le modèle de base continue la question en questionnaire ; on lui montre des milliers d&#x27;exemples de conversations écrits par des personnes ; après, à la même question, l&#x27;assistant répond : « La capitale de la France est Paris. »\">\n  <defs><linearGradient id=\"ajustement-supervise-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"ajustement-supervise-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <text x=\"0\" y=\"15\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#0030B8\" font-family=\"'Fira Code', ui-monospace, monospace\">Avant</tspan><tspan font-weight=\"400\" fill=\"#5C6070\"> · le modèle de base continue le texte</tspan></text>\n    <rect x=\"1\" y=\"25\" width=\"398\" height=\"58\" rx=\"12\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"16\" y=\"48\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Quelle est la capitale de la France ?</text>\n    <text x=\"16\" y=\"70\" font-size=\"14\" font-weight=\"600\" fill=\"#5C6070\" text-anchor=\"start\">A : Lyon · B : Paris · C : Marseille</text>\n    <text x=\"0\" y=\"113\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#0030B8\" font-family=\"'Fira Code', ui-monospace, monospace\">Pendant</tspan><tspan font-weight=\"400\" fill=\"#5C6070\"> · des milliers d&#x27;exemples, écrits par des personnes</tspan></text>\n    <rect x=\"17\" y=\"121\" width=\"382\" height=\"56\" rx=\"12\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <rect x=\"9\" y=\"126\" width=\"382\" height=\"56\" rx=\"12\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <rect x=\"1\" y=\"131\" width=\"382\" height=\"56\" rx=\"12\" fill=\"#EEF2FF\" stroke=\"#B3C3F7\" stroke-width=\"1.5\"/>\n    <text x=\"16\" y=\"154\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#14151F\">Utilisateur</tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\"> : Combien font 15 % de 80 ?</tspan></text>\n    <text x=\"16\" y=\"175\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#8600D4\">Assistant</tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\"> : 15 % de 80, cela fait 12.</tspan></text>\n    <text x=\"0\" y=\"217\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#0030B8\" font-family=\"'Fira Code', ui-monospace, monospace\">Après</tspan><tspan font-weight=\"600\" fill=\"#14151F\"> · il a appris à tenir le rôle de l&#x27;assistant</tspan></text>\n    <rect x=\"1\" y=\"227\" width=\"398\" height=\"62\" rx=\"12\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"2\"/>\n    <text x=\"16\" y=\"252\" font-size=\"14\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#14151F\">Utilisateur</tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\"> : Quelle est la capitale de la France ?</tspan></text>\n    <text x=\"16\" y=\"276\" font-size=\"14\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#8600D4\">Assistant</tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\"> : </tspan><tspan font-weight=\"600\" fill=\"#0030B8\">La capitale de la France est Paris.</tspan></text>\n  </g>\n</svg>",
+      "groupe": 2
+    },
+    "ajuste": {
+      "id": "ajuste",
+      "terme": "Modèle ajusté",
+      "termeAnglais": "",
+      "definition": "Le modèle issu de l'ajustement supervisé : il répond aux questions, mais en imitant ses exemples, sans pouvoir faire mieux que leurs auteurs.",
+      "definitionRiche": [
+        {
+          "texte": "Le modèle issu de l'ajustement supervisé : il ",
+          "gras": false
+        },
+        {
+          "texte": "répond aux questions",
+          "gras": true
+        },
+        {
+          "texte": ", mais ",
+          "gras": false
+        },
+        {
+          "texte": "en imitant",
+          "gras": true
+        },
+        {
+          "texte": " ses exemples, sans pouvoir faire mieux que leurs auteurs.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire d'Anthropic ; Karpathy, Deep Dive into LLMs",
+      "illustration": null,
+      "groupe": 2
+    },
+    "rlhf": {
+      "id": "rlhf",
+      "terme": "RLHF",
+      "termeAnglais": "reinforcement learning from human feedback",
+      "definition": "Un apprentissage par renforcement où des personnes comparent et classent plusieurs réponses du modèle ; les mieux classées deviennent plus probables.",
+      "definitionRiche": [
+        {
+          "texte": "Un apprentissage par renforcement où des personnes ",
+          "gras": false
+        },
+        {
+          "texte": "comparent et classent",
+          "gras": true
+        },
+        {
+          "texte": " plusieurs réponses du modèle ; les ",
+          "gras": false
+        },
+        {
+          "texte": "mieux classées",
+          "gras": true
+        },
+        {
+          "texte": " deviennent plus probables.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire d'Anthropic ; glossaire ML de Google ; OpenAI, InstructGPT (2022)",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 270\" role=\"img\" aria-label=\"Trois versions d&#x27;un e-mail pour décaler un rendez-vous, classées par des humains sur un podium : B première, A deuxième, C troisième.\">\n  <defs><linearGradient id=\"rlhf-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"rlhf-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <path d=\"M26 1 H382 A17 17 0 0 1 399 18 V30 A5 5 0 0 1 394 35 H26 A17 17 0 0 1 9 18 V18 A17 17 0 0 1 26 1 Z\" fill=\"#0030B8\"/>\n    <text x=\"204\" y=\"23\" font-size=\"13\" font-weight=\"400\" fill=\"#fff\" text-anchor=\"middle\">Rédige un e-mail pour décaler mon rendez-vous à jeudi.</text>\n    <path d=\"M15 89 H105 A14 14 0 0 1 119 103 V157 A14 14 0 0 1 105 171 H5 A4 4 0 0 1 1 167 V103 A14 14 0 0 1 15 89 Z\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"11\" y=\"111\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#8600D4\" font-family=\"'Fira Code', ui-monospace, monospace\">A </tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\">Bonjour,</tspan></text>\n    <text x=\"11\" y=\"127\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">pouvons-nous</text>\n    <text x=\"11\" y=\"143\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">décaler à</text>\n    <text x=\"11\" y=\"159\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">jeudi ? Merci.</text>\n    <path d=\"M1 218 V186 A8 8 0 0 1 9 178 H111 A8 8 0 0 1 119 186 V218 Z\" fill=\"#C9CCDA\"/>\n    <text x=\"60.0\" y=\"204.5\" font-size=\"18\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">2</text>\n    <path d=\"M139 55 H261 A14 14 0 0 1 275 69 V139 A14 14 0 0 1 261 153 H129 A4 4 0 0 1 125 149 V69 A14 14 0 0 1 139 55 Z\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"135\" y=\"77\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#8600D4\" font-family=\"'Fira Code', ui-monospace, monospace\">B </tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\">Bonjour, serait-il</tspan></text>\n    <text x=\"135\" y=\"93\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">possible de décaler</text>\n    <text x=\"135\" y=\"109\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">notre rendez-vous</text>\n    <text x=\"135\" y=\"125\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">à jeudi ? Bien</text>\n    <text x=\"135\" y=\"141\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">cordialement.</text>\n    <path d=\"M125 218 V168 A8 8 0 0 1 133 160 H267 A8 8 0 0 1 275 168 V218 Z\" fill=\"#FFD84D\"/>\n    <text x=\"200.0\" y=\"195.5\" font-size=\"18\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">1</text>\n    <path d=\"M295 119 H385 A14 14 0 0 1 399 133 V171 A14 14 0 0 1 385 185 H285 A4 4 0 0 1 281 181 V133 A14 14 0 0 1 295 119 Z\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"291\" y=\"141\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#8600D4\" font-family=\"'Fira Code', ui-monospace, monospace\">C </tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\">Jeudi, ça</tspan></text>\n    <text x=\"291\" y=\"157\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">vous va ?</text>\n    <text x=\"291\" y=\"173\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Sinon tant pis.</text>\n    <path d=\"M281 218 V200 A8 8 0 0 1 289 192 H391 A8 8 0 0 1 399 200 V218 Z\" fill=\"#D9A273\"/>\n    <text x=\"340.0\" y=\"211.5\" font-size=\"18\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">3</text>\n    <text x=\"0\" y=\"242\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Des humains comparent et classent :</text>\n    <text x=\"0\" y=\"261\" font-size=\"13\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">juger est plus facile qu&#x27;écrire.</text>\n  </g>\n</svg>",
+      "groupe": 2
+    },
+    "recomp": {
+      "id": "recomp",
+      "terme": "Modèle de récompense",
+      "termeAnglais": "",
+      "definition": "Un second modèle, distinct de celui qu'on entraîne, qui apprend à noter comme les humains, puis note seul les réponses.",
+      "definitionRiche": [
+        {
+          "texte": "Un ",
+          "gras": false
+        },
+        {
+          "texte": "second modèle",
+          "gras": true
+        },
+        {
+          "texte": ", distinct de celui qu'on entraîne, qui apprend à ",
+          "gras": false
+        },
+        {
+          "texte": "noter comme les humains",
+          "gras": true
+        },
+        {
+          "texte": ", puis note seul les réponses.",
+          "gras": false
+        }
+      ],
+      "source": "OpenAI, InstructGPT (2022) ; Karpathy, Deep Dive into LLMs",
+      "illustration": null,
+      "groupe": 2
+    },
+    "assist": {
+      "id": "assist",
+      "terme": "Modèle assistant",
+      "termeAnglais": "",
+      "definition": "Le modèle issu de la troisième phase, le renforcement : il est entraîné à répondre de façon utile, honnête et inoffensive, selon les critères de l'entreprise.",
+      "definitionRiche": [
+        {
+          "texte": "Le modèle issu de la ",
+          "gras": false
+        },
+        {
+          "texte": "troisième phase",
+          "gras": true
+        },
+        {
+          "texte": ", le renforcement : il est entraîné à répondre de façon ",
+          "gras": false
+        },
+        {
+          "texte": "utile, honnête et inoffensive",
+          "gras": true
+        },
+        {
+          "texte": ", selon les critères de l'entreprise.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire d'Anthropic ; OpenAI, InstructGPT (2022)",
+      "illustration": null,
+      "groupe": 2
+    },
+    "chatbot": {
+      "id": "chatbot",
+      "terme": "Chatbot",
+      "termeAnglais": "",
+      "definition": "L'application qui place le modèle assistant devant vous, avec une interface, un prompt système, l'historique et parfois des outils. Exemple : ChatGPT ou Claude.",
+      "definitionRiche": [
+        {
+          "texte": "L'",
+          "gras": false
+        },
+        {
+          "texte": "application",
+          "gras": true
+        },
+        {
+          "texte": " qui place le modèle assistant devant vous, avec une ",
+          "gras": false
+        },
+        {
+          "texte": "interface",
+          "gras": true
+        },
+        {
+          "texte": ", un prompt système, l'historique et parfois des outils. Exemple : ChatGPT ou Claude.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire ML de Google ; OpenAI Academy ; Microsoft Learn, AI concepts",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 296\" role=\"img\" aria-label=\"Une ligne de métro des données au chatbot : le préentraînement donne le modèle de base, le fine-tuning le modèle ajusté, le RLHF le modèle assistant ; puis une application, qui n&#x27;est plus un entraînement, en fait le chatbot.\">\n  <defs><linearGradient id=\"chatbot-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"chatbot-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <line x1=\"20\" y1=\"14\" x2=\"20\" y2=\"70\" stroke=\"#B3C3F7\" stroke-width=\"5\"/>\n    <line x1=\"20\" y1=\"70\" x2=\"20\" y2=\"126\" stroke=\"#B3C3F7\" stroke-width=\"5\"/>\n    <line x1=\"20\" y1=\"126\" x2=\"20\" y2=\"182\" stroke=\"#B3C3F7\" stroke-width=\"5\"/>\n    <line x1=\"20\" y1=\"182\" x2=\"20\" y2=\"266\" stroke=\"#B3C3F7\" stroke-width=\"5\" stroke-dasharray=\"7 6\"/>\n    <circle cx=\"20\" cy=\"14\" r=\"8\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"3\"/>\n    <text x=\"42\" y=\"19\" font-size=\"15\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Données</text>\n    <circle cx=\"20\" cy=\"70\" r=\"8\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"3\"/>\n    <text x=\"42\" y=\"75\" font-size=\"15\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Modèle de base</text>\n    <circle cx=\"20\" cy=\"126\" r=\"8\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"3\"/>\n    <text x=\"42\" y=\"131\" font-size=\"15\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Modèle ajusté</text>\n    <circle cx=\"20\" cy=\"182\" r=\"8\" fill=\"#fff\" stroke=\"#0030B8\" stroke-width=\"3\"/>\n    <text x=\"42\" y=\"187\" font-size=\"15\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Modèle assistant</text>\n    <circle cx=\"20\" cy=\"266\" r=\"12\" fill=\"url(#chatbot-degrade)\"/>\n    <circle cx=\"20\" cy=\"266\" r=\"4.5\" fill=\"#fff\"/>\n    <text x=\"42\" y=\"272\" font-size=\"17\" font-weight=\"700\" fill=\"url(#chatbot-degrade)\" text-anchor=\"start\">Le chatbot</text>\n    <text x=\"42\" y=\"291\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">ChatGPT, Claude… On dit aussi un assistant.</text>\n    <text x=\"42\" y=\"47.0\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#0030B8\" font-family=\"'Fira Code', ui-monospace, monospace\">Phase 1 · </tspan><tspan font-weight=\"600\" fill=\"#2B2E3A\">Préentraînement</tspan></text>\n    <text x=\"42\" y=\"103.0\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#0030B8\" font-family=\"'Fira Code', ui-monospace, monospace\">Phase 2 · </tspan><tspan font-weight=\"600\" fill=\"#2B2E3A\">Fine-tuning</tspan></text>\n    <text x=\"42\" y=\"159.0\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#0030B8\" font-family=\"'Fira Code', ui-monospace, monospace\">Phase 3 · </tspan><tspan font-weight=\"600\" fill=\"#2B2E3A\">RLHF</tspan></text>\n    <text x=\"42\" y=\"211\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#0030B8\" font-family=\"'Fira Code', ui-monospace, monospace\">Puis · </tspan><tspan font-weight=\"600\" fill=\"#14151F\">Une application</tspan></text>\n    <text x=\"42\" y=\"229\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Interface, prompt système,</text>\n    <text x=\"42\" y=\"245\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">historique, outils</text>\n    <path d=\"M262 8 H270 V178 H262\" fill=\"none\" stroke=\"#C9CCDA\" stroke-width=\"2.5\"/>\n    <text x=\"280\" y=\"57.0\" font-size=\"13\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Entraînement</text>\n    <text x=\"280\" y=\"73.0\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">le même réseau</text>\n    <text x=\"280\" y=\"89.0\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">de neurones,</text>\n    <text x=\"280\" y=\"105.0\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">ses paramètres</text>\n    <text x=\"280\" y=\"121.0\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">réglés phase</text>\n    <text x=\"280\" y=\"137.0\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">après phase</text>\n    <path d=\"M262 186 H270 V272 H262\" fill=\"none\" stroke=\"#C9CCDA\" stroke-width=\"2.5\"/>\n    <text x=\"280\" y=\"217.0\" font-size=\"13\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Utilisation</text>\n    <text x=\"280\" y=\"233.0\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">paramètres</text>\n    <text x=\"280\" y=\"249.0\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">figés</text>\n  </g>\n</svg>",
+      "groupe": 2
+    },
+    "calcul": {
+      "id": "calcul",
+      "terme": "Calcul",
+      "termeAnglais": "compute",
+      "definition": "Les multiplications du réseau de neurones, répétées des milliards de fois par des GPU. Elles coûtent à la fabrication, puis à chaque réponse.",
+      "definitionRiche": [
+        {
+          "texte": "Les ",
+          "gras": false
+        },
+        {
+          "texte": "multiplications du réseau de neurones",
+          "gras": true
+        },
+        {
+          "texte": ", répétées des milliards de fois par des GPU. Elles coûtent ",
+          "gras": false
+        },
+        {
+          "texte": "à la fabrication",
+          "gras": true
+        },
+        {
+          "texte": ", puis ",
+          "gras": false
+        },
+        {
+          "texte": "à chaque réponse",
+          "gras": true
+        },
+        {
+          "texte": ".",
+          "gras": false
+        }
+      ],
+      "source": "3Blue1Brown ; Karpathy, Deep Dive into LLMs",
+      "illustration": null,
+      "groupe": 2
+    },
+    "gpu": {
+      "id": "gpu",
+      "terme": "GPU",
+      "termeAnglais": "",
+      "definition": "Les processeurs graphiques : des puces qui font d'immenses quantités de multiplications en même temps. Elles servent à entraîner les modèles, puis à les faire répondre.",
+      "definitionRiche": [
+        {
+          "texte": "Les ",
+          "gras": false
+        },
+        {
+          "texte": "processeurs graphiques",
+          "gras": true
+        },
+        {
+          "texte": " : des puces qui font d'immenses quantités de multiplications ",
+          "gras": false
+        },
+        {
+          "texte": "en même temps",
+          "gras": true
+        },
+        {
+          "texte": ". Elles servent à entraîner les modèles, puis à les faire répondre.",
+          "gras": false
+        }
+      ],
+      "source": "3Blue1Brown ; Karpathy, Deep Dive into LLMs ; Elements of AI (université d'Helsinki)",
+      "illustration": null,
+      "groupe": 2
+    },
+    "energie": {
+      "id": "energie",
+      "terme": "Énergie",
+      "termeAnglais": "",
+      "definition": "L'électricité consommée par le calcul : énorme pour fabriquer un modèle, faible à chaque réponse, mais multipliée par des milliards de questions.",
+      "definitionRiche": [
+        {
+          "texte": "L'",
+          "gras": false
+        },
+        {
+          "texte": "électricité",
+          "gras": true
+        },
+        {
+          "texte": " consommée par le calcul : énorme pour fabriquer un modèle, faible à chaque réponse, mais ",
+          "gras": false
+        },
+        {
+          "texte": "multipliée par des milliards",
+          "gras": true
+        },
+        {
+          "texte": " de questions.",
+          "gras": false
+        }
+      ],
+      "source": "Agence internationale de l'énergie (2025) ; Luccioni et al. (2024)",
+      "illustration": null,
+      "groupe": 2
+    },
+    "echelle": {
+      "id": "echelle",
+      "terme": "Lois d'échelle",
+      "termeAnglais": "scaling laws",
+      "definition": "Des constats mesurés : l'erreur d'un modèle baisse de façon prévisible quand on augmente les paramètres, les données et le calcul. Ce qui compte : leur équilibre.",
+      "definitionRiche": [
+        {
+          "texte": "Des constats mesurés : l'erreur d'un modèle ",
+          "gras": false
+        },
+        {
+          "texte": "baisse de façon prévisible",
+          "gras": true
+        },
+        {
+          "texte": " quand on augmente les paramètres, les données et le calcul. Ce qui compte : leur ",
+          "gras": false
+        },
+        {
+          "texte": "équilibre",
+          "gras": true
+        },
+        {
+          "texte": ".",
+          "gras": false
+        }
+      ],
+      "source": "Kaplan et al. (2020) ; Hoffmann et al. (2022)",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 298\" role=\"img\" aria-label=\"L&#x27;erreur d&#x27;un modèle baisse de façon prévisible quand le calcul, les paramètres et les données augmentent ; pour le même calcul, Chinchilla, plus petit mais nourri de quatre fois plus de données, bat Gopher.\">\n  <defs><linearGradient id=\"lois-d-echelle-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"lois-d-echelle-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <line x1=\"8\" y1=\"6\" x2=\"8\" y2=\"96\" stroke=\"#8B90A0\" stroke-width=\"1.5\"/>\n    <line x1=\"8\" y1=\"96\" x2=\"392\" y2=\"96\" stroke=\"#8B90A0\" stroke-width=\"1.5\"/>\n    <text x=\"18\" y=\"16\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Erreur</text>\n    <text x=\"392\" y=\"114\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">Calcul, paramètres, données</text>\n    <text x=\"392\" y=\"18\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">Valeurs d&#x27;illustration</text>\n    <text x=\"392\" y=\"34\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">Kaplan et al., 2020</text>\n    <path d=\"M8.0 14.6 C57.2 72.8, 136.0 86.0, 392.0 91.0\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"3\" stroke-linecap=\"round\"/>\n    <circle cx=\"31.6\" cy=\"37.1\" r=\"3\" fill=\"#8600D4\"/>\n    <circle cx=\"86.8\" cy=\"64.0\" r=\"4.5\" fill=\"#8600D4\"/>\n    <circle cx=\"170.5\" cy=\"79.9\" r=\"6\" fill=\"#8600D4\"/>\n    <circle cx=\"278.8\" cy=\"87.7\" r=\"8\" fill=\"#8600D4\"/>\n    <line x1=\"0\" y1=\"128\" x2=\"400\" y2=\"128\" stroke=\"#14151F\" stroke-opacity=\"0.1\"/>\n    <text x=\"0\" y=\"152\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Deux recettes, même calcul</text>\n    <text x=\"0\" y=\"183\" font-size=\"16\" font-weight=\"700\" fill=\"#14151F\" text-anchor=\"start\">Gopher</text>\n    <rect x=\"178\" y=\"166\" width=\"120.0\" height=\"10\" rx=\"3\" fill=\"#0030B8\"/>\n    <text x=\"170\" y=\"175.5\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">paramètres</text>\n    <text x=\"304.0\" y=\"176\" font-size=\"13\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">280 milliards</text>\n    <rect x=\"178\" y=\"182\" width=\"25.7\" height=\"10\" rx=\"3\" fill=\"#8600D4\"/>\n    <text x=\"170\" y=\"191.5\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">données</text>\n    <text x=\"0\" y=\"229\" font-size=\"16\" font-weight=\"700\" fill=\"url(#lois-d-echelle-degrade)\" text-anchor=\"start\">Chinchilla</text>\n    <rect x=\"178\" y=\"212\" width=\"30.0\" height=\"10\" rx=\"3\" fill=\"#0030B8\"/>\n    <text x=\"170\" y=\"221.5\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">paramètres</text>\n    <text x=\"214.0\" y=\"222\" font-size=\"13\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">70 milliards</text>\n    <rect x=\"178\" y=\"228\" width=\"120.0\" height=\"10\" rx=\"3\" fill=\"#8600D4\"/>\n    <text x=\"170\" y=\"237.5\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">données</text>\n    <text x=\"304.0\" y=\"238\" font-size=\"13\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">× 4</text>\n    <text x=\"0\" y=\"268\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Pour le même calcul, Chinchilla gagne (DeepMind, 2022).</text>\n    <text x=\"0\" y=\"290\" font-size=\"15\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Ce qui compte, c&#x27;est l&#x27;équilibre.</text>\n  </g>\n</svg>",
+      "groupe": 2
+    },
+    "inf": {
+      "id": "inf",
+      "terme": "Inférence",
+      "termeAnglais": "",
+      "definition": "Faire tourner un modèle déjà entraîné pour obtenir une réponse, ses paramètres figés. Il n'apprend donc rien pendant que vous lui parlez.",
+      "definitionRiche": [
+        {
+          "texte": "Faire tourner un modèle déjà entraîné",
+          "gras": true
+        },
+        {
+          "texte": " pour obtenir une réponse, ses ",
+          "gras": false
+        },
+        {
+          "texte": "paramètres figés",
+          "gras": true
+        },
+        {
+          "texte": ". Il n'apprend donc rien pendant que vous lui parlez.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire ML de Google ; Karpathy, Deep Dive into LLMs",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 274\" role=\"img\" aria-label=\"L&#x27;entraînement a lieu une fois, coûte très cher et règle les paramètres ; à l&#x27;inférence, à chaque demande, les mêmes paramètres restent figés : pendant que vous lui parlez, le modèle n&#x27;apprend rien.\">\n  <defs><linearGradient id=\"inference-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"inference-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <circle cx=\"24\" cy=\"54\" r=\"18\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"3\"/>\n    <line x1=\"22.3\" y1=\"51.9\" x2=\"15.7\" y2=\"44.1\" stroke=\"#0030B8\" stroke-width=\"3.5\" stroke-linecap=\"round\"/>\n    <path d=\"M 4.7 36.6 A 26 26 0 0 1 43.3 36.6\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"1.75\" marker-end=\"url(#inference-fleche)\"/>\n    <circle cx=\"80\" cy=\"54\" r=\"18\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"3\"/>\n    <line x1=\"82.5\" y1=\"53.1\" x2=\"92.2\" y2=\"49.6\" stroke=\"#0030B8\" stroke-width=\"3.5\" stroke-linecap=\"round\"/>\n    <path d=\"M 60.7 36.6 A 26 26 0 0 1 99.3 36.6\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"1.75\" marker-end=\"url(#inference-fleche)\"/>\n    <circle cx=\"136\" cy=\"54\" r=\"18\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"3\"/>\n    <line x1=\"138.7\" y1=\"54.2\" x2=\"148.9\" y2=\"55.1\" stroke=\"#0030B8\" stroke-width=\"3.5\" stroke-linecap=\"round\"/>\n    <path d=\"M 155.3 36.6 A 26 26 0 0 0 116.7 36.6\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"1.75\" marker-end=\"url(#inference-fleche)\"/>\n    <text x=\"180\" y=\"24\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Entraînement</text>\n    <text x=\"180\" y=\"45\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Une fois</text>\n    <text x=\"180\" y=\"64\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">très cher</text>\n    <text x=\"180\" y=\"84\" font-size=\"14\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">les paramètres sont réglés</text>\n    <line x1=\"80\" y1=\"80\" x2=\"80\" y2=\"140\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#inference-fleche)\"/>\n    <text x=\"94\" y=\"115\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">mise en service</text>\n    <circle cx=\"24\" cy=\"170\" r=\"18\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"3\"/>\n    <line x1=\"22.3\" y1=\"167.9\" x2=\"15.7\" y2=\"160.1\" stroke=\"#0030B8\" stroke-width=\"3.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"80\" cy=\"170\" r=\"18\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"3\"/>\n    <line x1=\"82.5\" y1=\"169.1\" x2=\"92.2\" y2=\"165.6\" stroke=\"#0030B8\" stroke-width=\"3.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"136\" cy=\"170\" r=\"18\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"3\"/>\n    <line x1=\"138.7\" y1=\"170.2\" x2=\"148.9\" y2=\"171.1\" stroke=\"#0030B8\" stroke-width=\"3.5\" stroke-linecap=\"round\"/>\n    <circle cx=\"152\" cy=\"153\" r=\"12\" fill=\"#8600D4\" stroke=\"#fff\" stroke-width=\"2\"/>\n    <g transform=\"translate(145 145.5) scale(0.5833)\" fill=\"none\" stroke=\"#fff\" stroke-width=\"3.26\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"18\" height=\"11\" x=\"3\" y=\"11\" rx=\"2\" ry=\"2\"/><path d=\"M7 11V7a5 5 0 0 1 10 0v4\"/></g>\n    <text x=\"180\" y=\"140\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Inférence</text>\n    <text x=\"180\" y=\"161\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">À chaque demande</text>\n    <text x=\"180\" y=\"180\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">bien moins cher</text>\n    <text x=\"180\" y=\"200\" font-size=\"14\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">les paramètres sont figés</text>\n    <line x1=\"0\" y1=\"218\" x2=\"400\" y2=\"218\" stroke=\"#14151F\" stroke-opacity=\"0.1\"/>\n    <text x=\"0\" y=\"243\" font-size=\"15\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">Pendant que vous lui parlez,</text>\n    <rect x=\"76.5\" y=\"250.5\" width=\"115.5\" height=\"19\" rx=\"3\" fill=\"#FBF990\"/>\n    <text x=\"0\" y=\"264\" font-size=\"15\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"400\" fill=\"#14151F\">le modèle </tspan><tspan font-weight=\"600\" fill=\"#14151F\">n&#x27;apprend rien</tspan><tspan font-weight=\"400\" fill=\"#14151F\">.</tspan></text>\n  </g>\n</svg>",
+      "groupe": 3
+    },
+    "contexte": {
+      "id": "contexte",
+      "terme": "Contexte",
+      "termeAnglais": "",
+      "definition": "Tout ce que le modèle a sous les yeux pour répondre : un seul texte, que l'application lui renvoie en entier à chaque message.",
+      "definitionRiche": [
+        {
+          "texte": "Tout ce que le modèle a sous les yeux",
+          "gras": true
+        },
+        {
+          "texte": " pour répondre : un seul texte, que l'application lui ",
+          "gras": false
+        },
+        {
+          "texte": "renvoie en entier",
+          "gras": true
+        },
+        {
+          "texte": " à chaque message.",
+          "gras": false
+        }
+      ],
+      "source": "Anthropic, Effective context engineering for AI agents (2025) ; Karpathy, Deep Dive into LLMs",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 262\" role=\"img\" aria-label=\"Vous tapez une seule phrase, « Plus court, s&#x27;il te plaît » ; le modèle reçoit tout un texte : le prompt système, l&#x27;historique de la conversation, votre message, puis la suite à écrire, sa réponse.\">\n  <defs><linearGradient id=\"contexte-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"contexte-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <text x=\"0\" y=\"14\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Ce que vous tapez</text>\n    <path d=\"M 17 24 H 169 A 17 17 0 0 1 186 41 V 54 A 4 4 0 0 1 182 58 H 17 A 17 17 0 0 1 0 41 A 17 17 0 0 1 17 24 Z\" fill=\"#0030B8\"/>\n    <text x=\"14\" y=\"46\" font-size=\"15\" font-weight=\"400\" fill=\"#fff\" text-anchor=\"start\">Plus court, s&#x27;il te plaît.</text>\n    <text x=\"0\" y=\"92\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Ce que le modèle reçoit</text>\n    <rect x=\"1\" y=\"102\" width=\"398\" height=\"158\" rx=\"12\" fill=\"#fff\" stroke=\"#C9CCDA\" stroke-width=\"1.5\"/>\n    <text x=\"14\" y=\"128\" font-size=\"12\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Prompt système</text>\n    <text x=\"126\" y=\"128\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Tu es un assistant serviable…</text>\n    <line x1=\"14\" y1=\"142\" x2=\"386\" y2=\"142\" stroke=\"#14151F\" stroke-opacity=\"0.1\"/>\n    <text x=\"14\" y=\"164\" font-size=\"12\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Historique</text>\n    <text x=\"126\" y=\"164\" font-size=\"14\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#14151F\">Utilisateur :</tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\"> Rédige un e-mail…</tspan></text>\n    <text x=\"126\" y=\"184\" font-size=\"14\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#8600D4\">Assistant :</tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\"> Bonjour, serait-il possible…</tspan></text>\n    <line x1=\"14\" y1=\"198\" x2=\"386\" y2=\"198\" stroke=\"#14151F\" stroke-opacity=\"0.1\"/>\n    <text x=\"14\" y=\"220\" font-size=\"12\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Votre message</text>\n    <text x=\"126\" y=\"220\" font-size=\"14\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#14151F\">Utilisateur :</tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\"> Plus court, s&#x27;il te plaît.</tspan></text>\n    <text x=\"126\" y=\"242\" font-size=\"14\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#8600D4\">Assistant :</tspan></text>\n    <rect x=\"204\" y=\"229\" width=\"2.5\" height=\"16\" rx=\"1\" fill=\"#8600D4\"/>\n    <text x=\"218\" y=\"242\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">la suite à écrire</text>\n  </g>\n</svg>",
+      "groupe": 3
+    },
+    "promptsys": {
+      "id": "promptsys",
+      "terme": "Prompt système",
+      "termeAnglais": "",
+      "definition": "Des consignes placées avant la conversation, qui règlent le rôle, le ton, les règles et la forme des réponses. Deux couches : celles de l'éditeur, invisibles, puis les vôtres.",
+      "definitionRiche": [
+        {
+          "texte": "Des ",
+          "gras": false
+        },
+        {
+          "texte": "consignes placées avant la conversation",
+          "gras": true
+        },
+        {
+          "texte": ", qui règlent le rôle, le ton, les règles et la forme des réponses. Deux couches : celles de l'éditeur, ",
+          "gras": false
+        },
+        {
+          "texte": "invisibles",
+          "gras": true
+        },
+        {
+          "texte": ", puis les vôtres.",
+          "gras": false
+        }
+      ],
+      "source": "Microsoft Learn, AI concepts ; Karpathy, Deep Dive into LLMs ; OpenAI Academy",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 284\" role=\"img\" aria-label=\"Avant la conversation, deux couches de consignes : le prompt système de l&#x27;éditeur, invisible et non modifiable, puis le vôtre, que vous définissez et modifiez ; changez votre consigne, la même demande reçoit une autre réponse.\">\n  <defs><linearGradient id=\"prompt-systeme-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"prompt-systeme-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <rect x=\"0\" y=\"0\" width=\"400\" height=\"56\" rx=\"10\" fill=\"#F3F4FA\"/>\n    <text x=\"12\" y=\"21\" font-size=\"12\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\">Prompt système de l&#x27;éditeur</text>\n    <g transform=\"translate(190 9) scale(0.5833)\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"3.00\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"18\" height=\"11\" x=\"3\" y=\"11\" rx=\"2\" ry=\"2\"/><path d=\"M7 11V7a5 5 0 0 1 10 0v4\"/></g>\n    <g transform=\"translate(209 9) scale(0.5833)\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"3.00\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49\"/><path d=\"M14.084 14.158a3 3 0 0 1-4.242-4.242\"/><path d=\"M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143\"/><path d=\"m2 2 20 20\"/></g>\n    <text x=\"388\" y=\"21\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">invisible · non modifiable</text>\n    <text x=\"12\" y=\"43\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Tu es un assistant serviable…</text>\n    <rect x=\"0\" y=\"62\" width=\"400\" height=\"94\" rx=\"10\" fill=\"#EEF2FF\"/>\n    <text x=\"12\" y=\"83\" font-size=\"12\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\">Votre prompt système</text>\n    <g transform=\"translate(155 71) scale(0.5833)\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"3.00\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z\"/><path d=\"m15 5 4 4\"/></g>\n    <text x=\"388\" y=\"83\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">défini et modifié par vous</text>\n    <text x=\"12\" y=\"105\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Réponds très brièvement.</text>\n    <line x1=\"12\" y1=\"100.5\" x2=\"178\" y2=\"100.5\" stroke=\"#5C6070\" stroke-width=\"1.25\"/>\n    <text x=\"12\" y=\"125\" font-size=\"13\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">Tu es l&#x27;assistant d&#x27;une agence immobilière :</text>\n    <text x=\"12\" y=\"144\" font-size=\"13\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">ton formel, signe au nom de l&#x27;agence.</text>\n    <text x=\"12\" y=\"180\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#14151F\">Utilisateur :</tspan><tspan font-weight=\"400\" fill=\"#2B2E3A\"> Rédige un e-mail pour décaler</tspan></text>\n    <text x=\"12\" y=\"198\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">mon rendez-vous à jeudi.</text>\n    <text x=\"12\" y=\"220\" font-size=\"13\" text-anchor=\"start\" xml:space=\"preserve\"><tspan font-weight=\"600\" fill=\"#8600D4\">Assistant :</tspan><tspan font-weight=\"400\" fill=\"#5C6070\"> Bonjour, pouvons-nous décaler à jeudi ? Merci.</tspan></text>\n    <line x1=\"84\" y1=\"215.5\" x2=\"386\" y2=\"215.5\" stroke=\"#5C6070\" stroke-width=\"1.25\"/>\n    <text x=\"84\" y=\"239\" font-size=\"13\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Madame, Monsieur, … l&#x27;agence.</text>\n    <rect x=\"0\" y=\"254\" width=\"369\" height=\"28\" rx=\"14\" fill=\"#F6EEFF\"/>\n    <text x=\"12\" y=\"272.5\" font-size=\"13\" font-weight=\"400\" fill=\"#8600D4\" text-anchor=\"start\">Même modèle, même demande : une autre réponse.</text>\n  </g>\n</svg>",
+      "groupe": 3
+    },
+    "token": {
+      "id": "token",
+      "terme": "Token",
+      "termeAnglais": "",
+      "definition": "La plus petite unité de texte que le modèle lit et produit, souvent un morceau de mot. Exemple : « rendez-vous » se découpe en deux morceaux.",
+      "definitionRiche": [
+        {
+          "texte": "La ",
+          "gras": false
+        },
+        {
+          "texte": "plus petite unité de texte",
+          "gras": true
+        },
+        {
+          "texte": " que le modèle lit et produit, souvent un ",
+          "gras": false
+        },
+        {
+          "texte": "morceau de mot",
+          "gras": true
+        },
+        {
+          "texte": ". Exemple : « rendez-vous » se découpe en deux morceaux.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire ML de Google ; glossaire d'Anthropic",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 236\" role=\"img\" aria-label=\"La phrase « Pouvez-vous décaler notre rendez-vous à jeudi ? » est découpée en 11 tokens, souvent des morceaux de mots ; sa traduction anglaise, en 8.\">\n  <defs><linearGradient id=\"token-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"token-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <text x=\"0\" y=\"16\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Français</text>\n    <rect x=\"1\" y=\"26\" width=\"41.7\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"21.9\" y=\"47\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">Pou</text>\n    <rect x=\"45.7\" y=\"26\" width=\"38.2\" height=\"30\" rx=\"7\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"1.75\"/>\n    <text x=\"64.8\" y=\"47\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">vez</text>\n    <rect x=\"86.9\" y=\"26\" width=\"58.6\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"116.2\" y=\"47\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">-vous</text>\n    <rect x=\"155.5\" y=\"26\" width=\"32.7\" height=\"30\" rx=\"7\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"1.75\"/>\n    <text x=\"171.8\" y=\"47\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">dé</text>\n    <rect x=\"191.2\" y=\"26\" width=\"52.4\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"217.4\" y=\"47\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">caler</text>\n    <rect x=\"253.6\" y=\"26\" width=\"54.2\" height=\"30\" rx=\"7\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"1.75\"/>\n    <text x=\"280.7\" y=\"47\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">notre</text>\n    <rect x=\"1\" y=\"62\" width=\"66.1\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"34.0\" y=\"83\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">rendez</text>\n    <rect x=\"70.1\" y=\"62\" width=\"58.6\" height=\"30\" rx=\"7\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"1.75\"/>\n    <text x=\"99.4\" y=\"83\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">-vous</text>\n    <rect x=\"138.7\" y=\"62\" width=\"22.8\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"150.1\" y=\"83\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">à</text>\n    <rect x=\"171.5\" y=\"62\" width=\"50.9\" height=\"30\" rx=\"7\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"1.75\"/>\n    <text x=\"196.9\" y=\"83\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">jeudi</text>\n    <rect x=\"232.4\" y=\"62\" width=\"20.4\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"242.6\" y=\"83\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">?</text>\n    <text x=\"400\" y=\"88\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">tokens</text>\n    <text x=\"348\" y=\"88\" font-size=\"30\" font-weight=\"700\" fill=\"url(#token-degrade)\" text-anchor=\"end\">11</text>\n    <text x=\"0\" y=\"128\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Anglais</text>\n    <rect x=\"1\" y=\"138\" width=\"45.4\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"23.7\" y=\"159\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">Can</text>\n    <rect x=\"56.4\" y=\"138\" width=\"41.5\" height=\"30\" rx=\"7\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"1.75\"/>\n    <text x=\"77.2\" y=\"159\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">you</text>\n    <rect x=\"107.9\" y=\"138\" width=\"57.6\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"136.7\" y=\"159\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">move</text>\n    <rect x=\"175.5\" y=\"138\" width=\"38.4\" height=\"30\" rx=\"7\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"1.75\"/>\n    <text x=\"194.7\" y=\"159\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">our</text>\n    <rect x=\"223.9\" y=\"138\" width=\"117.2\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"282.5\" y=\"159\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">appointment</text>\n    <rect x=\"1\" y=\"174\" width=\"28.1\" height=\"30\" rx=\"7\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"1.75\"/>\n    <text x=\"15.1\" y=\"195\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">to</text>\n    <rect x=\"39.1\" y=\"174\" width=\"86.1\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"82.2\" y=\"195\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">Thursday</text>\n    <rect x=\"128.2\" y=\"174\" width=\"20.4\" height=\"30\" rx=\"7\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"1.75\"/>\n    <text x=\"138.4\" y=\"195\" font-size=\"16\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\">?</text>\n    <text x=\"400\" y=\"200\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">tokens</text>\n    <text x=\"348\" y=\"200\" font-size=\"30\" font-weight=\"700\" fill=\"url(#token-degrade)\" text-anchor=\"end\">8</text>\n    <text x=\"0\" y=\"228\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">découpage du tokeniseur de GPT-4o</text>\n  </g>\n</svg>",
+      "groupe": 3
+    },
+    "fen": {
+      "id": "fen",
+      "terme": "Fenêtre de contexte",
+      "termeAnglais": "",
+      "definition": "Le nombre maximal de tokens que le modèle voit à la fois, réponse en cours comprise. Ce qui n'y tient pas, il ne le voit pas.",
+      "definitionRiche": [
+        {
+          "texte": "Le ",
+          "gras": false
+        },
+        {
+          "texte": "nombre maximal",
+          "gras": true
+        },
+        {
+          "texte": " de tokens que le modèle voit à la fois, réponse en cours comprise. Ce qui n'y tient pas, il ",
+          "gras": false
+        },
+        {
+          "texte": "ne le voit pas",
+          "gras": true
+        },
+        {
+          "texte": ".",
+          "gras": false
+        }
+      ],
+      "source": "glossaire ML de Google ; glossaire d'Anthropic ; Anthropic, Context windows",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 126\" role=\"img\" aria-label=\"Le cadre de la fenêtre de contexte contient le prompt système, l&#x27;historique, un document, votre message et la réponse en cours ; le début de la conversation en est sorti : le modèle ne le voit plus.\">\n  <defs><linearGradient id=\"fenetre-de-contexte-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"fenetre-de-contexte-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <defs><pattern id=\"fenetre-hachure\" width=\"8\" height=\"8\" patternUnits=\"userSpaceOnUse\" patternTransform=\"rotate(45)\"><rect width=\"8\" height=\"8\" fill=\"#F6EEFF\"/><rect width=\"4\" height=\"8\" fill=\"#D9B8FF\"/></pattern></defs>\n    <g opacity=\"0.5\">\n    <rect x=\"0\" y=\"30\" width=\"42\" height=\"44\" rx=\"6\" fill=\"#B3C3F7\"/>\n    <text x=\"21\" y=\"56\" font-size=\"12\" font-weight=\"600\" fill=\"#001B6D\" text-anchor=\"middle\">Début</text>\n    </g>\n    <text x=\"49.25\" y=\"18\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Fenêtre de contexte</text>\n    <rect x=\"53.5\" y=\"30\" width=\"62.2\" height=\"44\" rx=\"5\" fill=\"#C9CCDA\"/>\n    <text x=\"84.6\" y=\"56\" font-size=\"12\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"middle\">Système</text>\n    <rect x=\"117.7\" y=\"30\" width=\"71.6\" height=\"44\" rx=\"5\" fill=\"#B3C3F7\"/>\n    <text x=\"153.5\" y=\"56\" font-size=\"12\" font-weight=\"600\" fill=\"#001B6D\" text-anchor=\"middle\">Historique</text>\n    <rect x=\"191.3\" y=\"30\" width=\"73.2\" height=\"44\" rx=\"5\" fill=\"#D9B8FF\"/>\n    <text x=\"227.9\" y=\"56\" font-size=\"12\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"middle\">Document</text>\n    <rect x=\"266.5\" y=\"30\" width=\"64\" height=\"44\" rx=\"5\" fill=\"#0030B8\"/>\n    <text x=\"298.5\" y=\"56\" font-size=\"12\" font-weight=\"600\" fill=\"#fff\" text-anchor=\"middle\">Message</text>\n    <rect x=\"332.5\" y=\"30\" width=\"62\" height=\"44\" rx=\"5\" fill=\"url(#fenetre-hachure)\"/>\n    <text x=\"363.5\" y=\"56\" font-size=\"12\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"middle\">Réponse</text>\n    <rect x=\"49.25\" y=\"25.75\" width=\"349.5\" height=\"52.5\" rx=\"9\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"2.5\"/>\n    <text x=\"0\" y=\"100\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Sorti de la fenêtre :</text>\n    <text x=\"0\" y=\"118\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">le modèle ne le voit plus.</text>\n  </g>\n</svg>",
+      "groupe": 3
+    },
+    "emb": {
+      "id": "emb",
+      "terme": "Embedding",
+      "termeAnglais": "",
+      "definition": "La liste de nombres qui place un token sur une carte du sens, où les mots de sens proche se retrouvent proches. Exemple : « chien » y est près de « chat ».",
+      "definitionRiche": [
+        {
+          "texte": "La ",
+          "gras": false
+        },
+        {
+          "texte": "liste de nombres",
+          "gras": true
+        },
+        {
+          "texte": " qui place un token sur une ",
+          "gras": false
+        },
+        {
+          "texte": "carte du sens",
+          "gras": true
+        },
+        {
+          "texte": ", où les mots de sens proche se retrouvent proches. Exemple : « chien » y est près de « chat ».",
+          "gras": false
+        }
+      ],
+      "source": "glossaire ML de Google ; Google, Machine Learning Crash Course (module Embeddings)",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 268\" role=\"img\" aria-label=\"« Chien » devient une liste de nombres, qui le place sur une carte du sens : près de « chat » et de « chiot », loin de « voiture » ou de « carotte ».\">\n  <defs><linearGradient id=\"embedding-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"embedding-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <rect x=\"1\" y=\"1\" width=\"62\" height=\"30\" rx=\"7\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <text x=\"32\" y=\"22\" font-size=\"15\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"middle\">chien</text>\n    <rect x=\"72\" y=\"2\" width=\"44\" height=\"26\" rx=\"5\" fill=\"#C9CCDA\" fill-opacity=\"0.6\"/>\n    <text x=\"94.0\" y=\"20\" font-size=\"13\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">0,12</text>\n    <rect x=\"121\" y=\"2\" width=\"52\" height=\"26\" rx=\"5\" fill=\"#C9CCDA\" fill-opacity=\"0.6\"/>\n    <text x=\"147.0\" y=\"20\" font-size=\"13\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">−0,87</text>\n    <rect x=\"178\" y=\"2\" width=\"44\" height=\"26\" rx=\"5\" fill=\"#C9CCDA\" fill-opacity=\"0.6\"/>\n    <text x=\"200.0\" y=\"20\" font-size=\"13\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"middle\" font-family=\"'Fira Code', ui-monospace, monospace\">0,33</text>\n    <text x=\"229\" y=\"20\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">…</text>\n    <text x=\"0\" y=\"50\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Des milliers de nombres · valeurs d&#x27;illustration</text>\n    <text x=\"0\" y=\"80\" font-size=\"13\" font-weight=\"600\" fill=\"#0030B8\" text-anchor=\"start\" font-family=\"'Fira Code', ui-monospace, monospace\">Carte du sens</text>\n    <rect x=\"0\" y=\"92\" width=\"180\" height=\"82\" rx=\"41.0\" fill=\"#EEF2FF\"/>\n    <circle cx=\"26\" cy=\"113\" r=\"8\" fill=\"none\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <circle cx=\"26\" cy=\"113\" r=\"4.5\" fill=\"#0030B8\"/>\n    <text x=\"38\" y=\"118\" font-size=\"15\" font-weight=\"700\" fill=\"#14151F\" text-anchor=\"start\">chien</text>\n    <circle cx=\"112\" cy=\"135\" r=\"4.5\" fill=\"#0030B8\"/>\n    <text x=\"124\" y=\"140\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">chat</text>\n    <circle cx=\"22\" cy=\"155\" r=\"4.5\" fill=\"#0030B8\"/>\n    <text x=\"34\" y=\"160\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">chiot</text>\n    <rect x=\"220\" y=\"92\" width=\"180\" height=\"82\" rx=\"41.0\" fill=\"#F6EEFF\"/>\n    <circle cx=\"246\" cy=\"113\" r=\"4.5\" fill=\"#8600D4\"/>\n    <text x=\"258\" y=\"118\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">voiture</text>\n    <circle cx=\"322\" cy=\"135\" r=\"4.5\" fill=\"#8600D4\"/>\n    <text x=\"334\" y=\"140\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">avion</text>\n    <circle cx=\"252\" cy=\"155\" r=\"4.5\" fill=\"#8600D4\"/>\n    <text x=\"264\" y=\"160\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">train</text>\n    <rect x=\"50\" y=\"188\" width=\"196\" height=\"78\" rx=\"39.0\" fill=\"#E7F2EF\"/>\n    <circle cx=\"76\" cy=\"208\" r=\"4.5\" fill=\"#0E7C5B\"/>\n    <text x=\"88\" y=\"213\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">carotte</text>\n    <circle cx=\"158\" cy=\"228\" r=\"4.5\" fill=\"#0E7C5B\"/>\n    <text x=\"170\" y=\"233\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">céleri</text>\n    <circle cx=\"72\" cy=\"248\" r=\"4.5\" fill=\"#0E7C5B\"/>\n    <text x=\"84\" y=\"253\" font-size=\"14\" font-weight=\"400\" fill=\"#14151F\" text-anchor=\"start\">concombre</text>\n    <text x=\"400\" y=\"262\" font-size=\"12\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"end\">positions d&#x27;illustration</text>\n  </g>\n</svg>",
+      "groupe": 3
+    },
+    "attn": {
+      "id": "attn",
+      "terme": "Attention",
+      "termeAnglais": "",
+      "definition": "Le calcul par lequel chaque token pèse l'importance de ceux qui le précèdent, pour préciser son sens. Exemple : « avocat » désigne le juriste après « tribunal », le fruit après « marché ».",
+      "definitionRiche": [
+        {
+          "texte": "Le calcul par lequel chaque token ",
+          "gras": false
+        },
+        {
+          "texte": "pèse l'importance",
+          "gras": true
+        },
+        {
+          "texte": " de ceux qui le précèdent, pour ",
+          "gras": false
+        },
+        {
+          "texte": "préciser son sens",
+          "gras": true
+        },
+        {
+          "texte": ". Exemple : « avocat » désigne le juriste après « tribunal », le fruit après « marché ».",
+          "gras": false
+        }
+      ],
+      "source": "glossaire ML de Google ; 3Blue1Brown",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 236\" role=\"img\" aria-label=\"« L&#x27;avocat » prend le sens de juriste après « tribunal », et celui de fruit après « marché ».\">\n  <defs><linearGradient id=\"attention-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"attention-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <text x=\"0\" y=\"70\" font-size=\"16\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Au</text>\n    <text x=\"25.4\" y=\"70\" font-size=\"16\" font-weight=\"700\" fill=\"#8600D4\" text-anchor=\"start\">tribunal,</text>\n    <text x=\"121.6\" y=\"70\" font-size=\"16\" font-weight=\"700\" fill=\"#0030B8\" text-anchor=\"start\">l&#x27;avocat</text>\n    <path d=\"M 70 50 C 70 20, 161 20, 161 48\" fill=\"none\" stroke=\"#8600D4\" stroke-width=\"2.25\" marker-end=\"url(#attention-fleche)\"/>\n    <line x1=\"206.0\" y1=\"64\" x2=\"226.0\" y2=\"64\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#attention-fleche)\"/>\n    <rect x=\"232.0\" y=\"49\" width=\"96\" height=\"30\" rx=\"15.0\" fill=\"url(#attention-degrade)\"/>\n    <text x=\"280.0\" y=\"69.04\" font-size=\"14\" font-weight=\"600\" fill=\"#fff\" text-anchor=\"middle\">juriste</text>\n    <text x=\"0\" y=\"160\" font-size=\"16\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Au</text>\n    <text x=\"25.4\" y=\"160\" font-size=\"16\" font-weight=\"700\" fill=\"#8600D4\" text-anchor=\"start\">marché,</text>\n    <text x=\"102.0\" y=\"160\" font-size=\"16\" font-weight=\"700\" fill=\"#0030B8\" text-anchor=\"start\">l&#x27;avocat</text>\n    <path d=\"M 60 140 C 60 110, 141 110, 141 138\" fill=\"none\" stroke=\"#8600D4\" stroke-width=\"2.25\" marker-end=\"url(#attention-fleche)\"/>\n    <line x1=\"186.4\" y1=\"154\" x2=\"206.4\" y2=\"154\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#attention-fleche)\"/>\n    <rect x=\"212.4\" y=\"139\" width=\"96\" height=\"30\" rx=\"15.0\" fill=\"url(#attention-degrade)\"/>\n    <text x=\"260.4\" y=\"159.04\" font-size=\"14\" font-weight=\"600\" fill=\"#fff\" text-anchor=\"middle\">fruit</text>\n    <text x=\"0\" y=\"206\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Chaque token précise son sens</text>\n    <text x=\"0\" y=\"226\" font-size=\"14\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">d&#x27;après les tokens qui le précèdent.</text>\n  </g>\n</svg>",
+      "groupe": 3
+    },
+    "transf": {
+      "id": "transf",
+      "terme": "Transformer",
+      "termeAnglais": "",
+      "definition": "L'architecture de presque tous les LLM, publiée par Google en 2017 : une pile de couches, où l'attention précise le sens, qui traite tous les tokens en même temps.",
+      "definitionRiche": [
+        {
+          "texte": "L'",
+          "gras": false
+        },
+        {
+          "texte": "architecture",
+          "gras": true
+        },
+        {
+          "texte": " de presque tous les LLM, publiée par Google en 2017 : une ",
+          "gras": false
+        },
+        {
+          "texte": "pile de couches",
+          "gras": true
+        },
+        {
+          "texte": ", où l'attention précise le sens, qui traite tous les tokens ",
+          "gras": false
+        },
+        {
+          "texte": "en même temps",
+          "gras": true
+        },
+        {
+          "texte": ".",
+          "gras": false
+        }
+      ],
+      "source": "glossaire ML de Google ; Vaswani et al. (2017) ; 3Blue1Brown",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 266\" role=\"img\" aria-label=\"Le Transformer est une pile de couches, une centaine dans un grand modèle, avec l&#x27;attention dans chaque couche ; tous les tokens y entrent en même temps.\">\n  <defs><linearGradient id=\"transformer-degrade\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"0.52\" stop-color=\"#4A1BD0\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient><marker id=\"transformer-fleche\" viewBox=\"0 0 10 10\" refX=\"8\" refY=\"5\" markerWidth=\"6\" markerHeight=\"6\" orient=\"auto-start-reverse\"><path d=\"M0 0 L10 5 L0 10 z\" fill=\"#0030B8\"/></marker></defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\">\n    <polygon points=\"2,202 214,202 214,208 2,208\" fill=\"#8600D4\"/>\n    <polygon points=\"214,202 242,178 242,184 214,208\" fill=\"#8600D4\" opacity=\"0.7\"/>\n    <polygon points=\"30,178 242,178 214,202 2,202\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n    <text x=\"122.0\" y=\"194.5\" font-size=\"12\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"middle\">attention</text>\n    <polygon points=\"2,166 214,166 214,172 2,172\" fill=\"#8600D4\"/>\n    <polygon points=\"214,166 242,142 242,148 214,172\" fill=\"#8600D4\" opacity=\"0.7\"/>\n    <polygon points=\"30,142 242,142 214,166 2,166\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n    <text x=\"122.0\" y=\"158.5\" font-size=\"12\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"middle\">attention</text>\n    <polygon points=\"2,130 214,130 214,136 2,136\" fill=\"#8600D4\"/>\n    <polygon points=\"214,130 242,106 242,112 214,136\" fill=\"#8600D4\" opacity=\"0.7\"/>\n    <polygon points=\"30,106 242,106 214,130 2,130\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n    <text x=\"122.0\" y=\"122.5\" font-size=\"12\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"middle\">attention</text>\n    <polygon points=\"2,94 214,94 214,100 2,100\" fill=\"#8600D4\"/>\n    <polygon points=\"214,94 242,70 242,76 214,100\" fill=\"#8600D4\" opacity=\"0.7\"/>\n    <polygon points=\"30,70 242,70 214,94 2,94\" fill=\"#F6EEFF\" stroke=\"#8600D4\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n    <text x=\"122.0\" y=\"86.5\" font-size=\"12\" font-weight=\"600\" fill=\"#8600D4\" text-anchor=\"middle\">attention</text>\n    <rect x=\"36\" y=\"10\" width=\"30\" height=\"20\" rx=\"6\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <line x1=\"51\" y1=\"34\" x2=\"51\" y2=\"68\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#transformer-fleche)\"/>\n    <rect x=\"76\" y=\"10\" width=\"30\" height=\"20\" rx=\"6\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <line x1=\"91\" y1=\"34\" x2=\"91\" y2=\"68\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#transformer-fleche)\"/>\n    <rect x=\"116\" y=\"10\" width=\"30\" height=\"20\" rx=\"6\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <line x1=\"131\" y1=\"34\" x2=\"131\" y2=\"68\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#transformer-fleche)\"/>\n    <rect x=\"156\" y=\"10\" width=\"30\" height=\"20\" rx=\"6\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <line x1=\"171\" y1=\"34\" x2=\"171\" y2=\"68\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#transformer-fleche)\"/>\n    <rect x=\"196\" y=\"10\" width=\"30\" height=\"20\" rx=\"6\" fill=\"#EEF2FF\" stroke=\"#0030B8\" stroke-width=\"1.75\"/>\n    <line x1=\"211\" y1=\"34\" x2=\"211\" y2=\"68\" stroke=\"#0030B8\" stroke-width=\"2.25\" marker-end=\"url(#transformer-fleche)\"/>\n    <text x=\"262\" y=\"22\" font-size=\"14\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">Tous les tokens</text>\n    <text x=\"262\" y=\"40\" font-size=\"14\" font-weight=\"600\" fill=\"#14151F\" text-anchor=\"start\">en même temps</text>\n    <text x=\"262\" y=\"87\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Couche 1</text>\n    <text x=\"262\" y=\"123\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">Couche 2</text>\n    <text x=\"262\" y=\"159\" font-size=\"13\" font-weight=\"400\" fill=\"#5C6070\" text-anchor=\"start\">…</text>\n    <text x=\"0\" y=\"238\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">Une centaine de couches dans un grand modèle ;</text>\n    <text x=\"0\" y=\"258\" font-size=\"14\" font-weight=\"400\" fill=\"#2B2E3A\" text-anchor=\"start\">l&#x27;attention dans chaque couche.</text>\n  </g>\n</svg>",
+      "groupe": 3
+    },
+    "temp": {
+      "id": "temp",
+      "terme": "Température",
+      "termeAnglais": "",
+      "definition": "Le réglage qui dose le hasard quand le modèle tire au sort chaque token : basse, réponses prévisibles ; haute, plus variées, parfois incohérentes.",
+      "definitionRiche": [
+        {
+          "texte": "Le réglage qui dose le hasard quand le modèle ",
+          "gras": false
+        },
+        {
+          "texte": "tire au sort",
+          "gras": true
+        },
+        {
+          "texte": " chaque token : basse, réponses ",
+          "gras": false
+        },
+        {
+          "texte": "prévisibles",
+          "gras": true
+        },
+        {
+          "texte": " ; haute, plus variées, parfois incohérentes.",
+          "gras": false
+        }
+      ],
+      "source": "glossaire ML de Google ; glossaire d'Anthropic ; 3Blue1Brown",
+      "illustration": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 230\" role=\"img\" aria-label=\"À température basse, la suite la plus probable domine ; à température haute, l'éventail des suites possibles s'ouvre.\">\n  <defs>\n    <linearGradient id=\"temperature-degrade\" x1=\"0\" y1=\"1\" x2=\"0\" y2=\"0\"><stop offset=\"0\" stop-color=\"#0030B8\"/><stop offset=\"1\" stop-color=\"#8600D4\"/></linearGradient>\n  </defs>\n  <g font-family=\"Poppins, system-ui, sans-serif\" text-anchor=\"middle\">\n    <!-- Les mêmes tokens possibles, à deux températures : l'éventail resserré à gauche, ouvert à droite. Les barres ont le même total des deux côtés (une probabilité totale de 1). Aucune valeur : seule la forme compte. -->\n    <text x=\"100\" y=\"24\" font-size=\"17\" font-weight=\"700\" fill=\"#14151F\">Basse</text>\n    <text x=\"100\" y=\"45\" font-size=\"14\" fill=\"#5C6070\">prévisible</text>\n    <line x1=\"12\" y1=\"196\" x2=\"188\" y2=\"196\" stroke=\"#14151F\" stroke-opacity=\"0.15\"/>\n    <rect x=\"22\" y=\"62\" width=\"26\" height=\"134\" rx=\"7\" fill=\"url(#temperature-degrade)\"/>\n    <rect x=\"56\" y=\"176\" width=\"26\" height=\"20\" rx=\"7\" fill=\"#B3C3F7\"/>\n    <rect x=\"90\" y=\"186\" width=\"26\" height=\"10\" rx=\"5\" fill=\"#C9CCDA\"/>\n    <rect x=\"124\" y=\"189\" width=\"26\" height=\"7\" rx=\"3.5\" fill=\"#C9CCDA\"/>\n    <rect x=\"158\" y=\"191\" width=\"26\" height=\"5\" rx=\"2.5\" fill=\"#C9CCDA\"/>\n    <line x1=\"200\" y1=\"14\" x2=\"200\" y2=\"200\" stroke=\"#14151F\" stroke-opacity=\"0.1\"/>\n    <text x=\"300\" y=\"24\" font-size=\"17\" font-weight=\"700\" fill=\"#14151F\">Haute</text>\n    <text x=\"300\" y=\"45\" font-size=\"14\" fill=\"#5C6070\">variée</text>\n    <line x1=\"212\" y1=\"196\" x2=\"388\" y2=\"196\" stroke=\"#14151F\" stroke-opacity=\"0.15\"/>\n    <rect x=\"222\" y=\"142\" width=\"26\" height=\"54\" rx=\"7\" fill=\"url(#temperature-degrade)\"/>\n    <rect x=\"256\" y=\"154\" width=\"26\" height=\"42\" rx=\"7\" fill=\"#B3C3F7\"/>\n    <rect x=\"290\" y=\"162\" width=\"26\" height=\"34\" rx=\"7\" fill=\"#B3C3F7\"/>\n    <rect x=\"324\" y=\"170\" width=\"26\" height=\"26\" rx=\"7\" fill=\"#B3C3F7\"/>\n    <rect x=\"358\" y=\"176\" width=\"26\" height=\"20\" rx=\"7\" fill=\"#B3C3F7\"/>\n    <text x=\"200\" y=\"222\" font-size=\"14\" fill=\"#5C6070\">Les mêmes tokens possibles, du plus au moins probable</text>\n  </g>\n</svg>",
+      "groupe": 3
+    }
+  },
+  "ordreCartes": [
+    "ia",
+    "aa",
+    "sup",
+    "autosup",
+    "renf",
+    "rn",
+    "ap",
+    "iagen",
+    "llm",
+    "stat",
+    "param",
+    "train",
+    "data",
+    "pre",
+    "base",
+    "sft",
+    "ajuste",
+    "rlhf",
+    "recomp",
+    "assist",
+    "chatbot",
+    "calcul",
+    "gpu",
+    "energie",
+    "echelle",
+    "inf",
+    "contexte",
+    "promptsys",
+    "token",
+    "fen",
+    "emb",
+    "attn",
+    "transf",
+    "temp"
+  ],
+  "phrases": [
+    {
+      "texte": "Juste à l'intérieur de l'[[ia|intelligence artificielle]], l'[[aa|apprentissage automatique]] est le cercle où la machine apprend d'exemples, au lieu de suivre des règles.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Juste à l'intérieur de l'"
+        },
+        {
+          "type": "carte",
+          "id": "ia",
+          "texte": "intelligence artificielle"
+        },
+        {
+          "type": "texte",
+          "texte": ", l'"
+        },
+        {
+          "type": "carte",
+          "id": "aa",
+          "texte": "apprentissage automatique"
+        },
+        {
+          "type": "texte",
+          "texte": " est le cercle où la machine apprend d'exemples, au lieu de suivre des règles."
+        }
+      ],
+      "cartes": [
+        "ia",
+        "aa"
+      ]
+    },
+    {
+      "texte": "Juste à l'intérieur de l'[[aa|apprentissage automatique]], où la machine apprend d'exemples, l'[[ap|apprentissage profond]] est le cercle des réseaux de neurones à nombreuses couches.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Juste à l'intérieur de l'"
+        },
+        {
+          "type": "carte",
+          "id": "aa",
+          "texte": "apprentissage automatique"
+        },
+        {
+          "type": "texte",
+          "texte": ", où la machine apprend d'exemples, l'"
+        },
+        {
+          "type": "carte",
+          "id": "ap",
+          "texte": "apprentissage profond"
+        },
+        {
+          "type": "texte",
+          "texte": " est le cercle des réseaux de neurones à nombreuses couches."
+        }
+      ],
+      "cartes": [
+        "aa",
+        "ap"
+      ]
+    },
+    {
+      "texte": "Juste à l'intérieur de l'[[ap|apprentissage profond]], l'[[iagen|IA générative]] est le cercle des réseaux qui créent un contenu nouveau.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Juste à l'intérieur de l'"
+        },
+        {
+          "type": "carte",
+          "id": "ap",
+          "texte": "apprentissage profond"
+        },
+        {
+          "type": "texte",
+          "texte": ", l'"
+        },
+        {
+          "type": "carte",
+          "id": "iagen",
+          "texte": "IA générative"
+        },
+        {
+          "type": "texte",
+          "texte": " est le cercle des réseaux qui créent un contenu nouveau."
+        }
+      ],
+      "cartes": [
+        "ap",
+        "iagen"
+      ]
+    },
+    {
+      "texte": "Comme toute [[iagen|IA générative]], un [[llm|LLM]] crée un contenu nouveau : du texte, d'où son nom de modèle de langage.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Comme toute "
+        },
+        {
+          "type": "carte",
+          "id": "iagen",
+          "texte": "IA générative"
+        },
+        {
+          "type": "texte",
+          "texte": ", un "
+        },
+        {
+          "type": "carte",
+          "id": "llm",
+          "texte": "LLM"
+        },
+        {
+          "type": "texte",
+          "texte": " crée un contenu nouveau : du texte, d'où son nom de modèle de langage."
+        }
+      ],
+      "cartes": [
+        "iagen",
+        "llm"
+      ]
+    },
+    {
+      "texte": "D'une phase de fabrication à l'autre, un [[llm|LLM]] reste un [[stat|modèle statistique]] : il calcule des probabilités, au lieu d'appliquer des règles.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "D'une phase de fabrication à l'autre, un "
+        },
+        {
+          "type": "carte",
+          "id": "llm",
+          "texte": "LLM"
+        },
+        {
+          "type": "texte",
+          "texte": " reste un "
+        },
+        {
+          "type": "carte",
+          "id": "stat",
+          "texte": "modèle statistique"
+        },
+        {
+          "type": "texte",
+          "texte": " : il calcule des probabilités, au lieu d'appliquer des règles."
+        }
+      ],
+      "cartes": [
+        "llm",
+        "stat"
+      ]
+    },
+    {
+      "texte": "Du modèle de base au modèle assistant, un [[llm|LLM]] reste le même [[rn|réseau de neurones]], aux couches très nombreuses.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Du modèle de base au modèle assistant, un "
+        },
+        {
+          "type": "carte",
+          "id": "llm",
+          "texte": "LLM"
+        },
+        {
+          "type": "texte",
+          "texte": " reste le même "
+        },
+        {
+          "type": "carte",
+          "id": "rn",
+          "texte": "réseau de neurones"
+        },
+        {
+          "type": "texte",
+          "texte": ", aux couches très nombreuses."
+        }
+      ],
+      "cartes": [
+        "llm",
+        "rn"
+      ]
+    },
+    {
+      "texte": "De la première phase à la dernière, un [[llm|LLM]] garde ses milliards de [[param|paramètres]] : seules leurs valeurs changent.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "De la première phase à la dernière, un "
+        },
+        {
+          "type": "carte",
+          "id": "llm",
+          "texte": "LLM"
+        },
+        {
+          "type": "texte",
+          "texte": " garde ses milliards de "
+        },
+        {
+          "type": "carte",
+          "id": "param",
+          "texte": "paramètres"
+        },
+        {
+          "type": "texte",
+          "texte": " : seules leurs valeurs changent."
+        }
+      ],
+      "cartes": [
+        "llm",
+        "param"
+      ]
+    },
+    {
+      "texte": "L'[[train|entraînement]] règle les milliards de [[param|paramètres]] en trois phases, sans aucun réglage à la main.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "L'"
+        },
+        {
+          "type": "carte",
+          "id": "train",
+          "texte": "entraînement"
+        },
+        {
+          "type": "texte",
+          "texte": " règle les milliards de "
+        },
+        {
+          "type": "carte",
+          "id": "param",
+          "texte": "paramètres"
+        },
+        {
+          "type": "texte",
+          "texte": " en trois phases, sans aucun réglage à la main."
+        }
+      ],
+      "cartes": [
+        "train",
+        "param"
+      ]
+    },
+    {
+      "texte": "Le [[pre|préentraînement]] est la première et la plus coûteuse des trois phases où l'[[train|entraînement]] règle les paramètres.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Le "
+        },
+        {
+          "type": "carte",
+          "id": "pre",
+          "texte": "préentraînement"
+        },
+        {
+          "type": "texte",
+          "texte": " est la première et la plus coûteuse des trois phases où l'"
+        },
+        {
+          "type": "carte",
+          "id": "train",
+          "texte": "entraînement"
+        },
+        {
+          "type": "texte",
+          "texte": " règle les paramètres."
+        }
+      ],
+      "cartes": [
+        "pre",
+        "train"
+      ]
+    },
+    {
+      "texte": "Première phase, le [[pre|préentraînement]] parcourt les [[data|données d'entraînement]] avec une seule tâche : deviner le token suivant.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Première phase, le "
+        },
+        {
+          "type": "carte",
+          "id": "pre",
+          "texte": "préentraînement"
+        },
+        {
+          "type": "texte",
+          "texte": " parcourt les "
+        },
+        {
+          "type": "carte",
+          "id": "data",
+          "texte": "données d'entraînement"
+        },
+        {
+          "type": "texte",
+          "texte": " avec une seule tâche : deviner le token suivant."
+        }
+      ],
+      "cartes": [
+        "pre",
+        "data"
+      ]
+    },
+    {
+      "texte": "Parmi les trois façons d'apprendre, le [[pre|préentraînement]], première phase, applique l'[[autosup|apprentissage autosupervisé]] : le texte fournit lui-même la bonne réponse.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Parmi les trois façons d'apprendre, le "
+        },
+        {
+          "type": "carte",
+          "id": "pre",
+          "texte": "préentraînement"
+        },
+        {
+          "type": "texte",
+          "texte": ", première phase, applique l'"
+        },
+        {
+          "type": "carte",
+          "id": "autosup",
+          "texte": "apprentissage autosupervisé"
+        },
+        {
+          "type": "texte",
+          "texte": " : le texte fournit lui-même la bonne réponse."
+        }
+      ],
+      "cartes": [
+        "pre",
+        "autosup"
+      ]
+    },
+    {
+      "texte": "Le [[pre|préentraînement]], première phase, produit un [[base|modèle de base]] : il sait beaucoup, mais continue le texte au lieu de répondre.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Le "
+        },
+        {
+          "type": "carte",
+          "id": "pre",
+          "texte": "préentraînement"
+        },
+        {
+          "type": "texte",
+          "texte": ", première phase, produit un "
+        },
+        {
+          "type": "carte",
+          "id": "base",
+          "texte": "modèle de base"
+        },
+        {
+          "type": "texte",
+          "texte": " : il sait beaucoup, mais continue le texte au lieu de répondre."
+        }
+      ],
+      "cartes": [
+        "pre",
+        "base"
+      ]
+    },
+    {
+      "texte": "Deuxième phase, l'[[sft|ajustement supervisé]] transforme le [[base|modèle de base]], issu de la première, en [[ajuste|modèle ajusté]], qui répond en imitant ses exemples.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Deuxième phase, l'"
+        },
+        {
+          "type": "carte",
+          "id": "sft",
+          "texte": "ajustement supervisé"
+        },
+        {
+          "type": "texte",
+          "texte": " transforme le "
+        },
+        {
+          "type": "carte",
+          "id": "base",
+          "texte": "modèle de base"
+        },
+        {
+          "type": "texte",
+          "texte": ", issu de la première, en "
+        },
+        {
+          "type": "carte",
+          "id": "ajuste",
+          "texte": "modèle ajusté"
+        },
+        {
+          "type": "texte",
+          "texte": ", qui répond en imitant ses exemples."
+        }
+      ],
+      "cartes": [
+        "sft",
+        "base",
+        "ajuste"
+      ]
+    },
+    {
+      "texte": "Parmi les trois façons d'apprendre, l'[[sft|ajustement supervisé]], deuxième phase, applique l'[[sup|apprentissage supervisé]] : des personnes écrivent les bonnes réponses.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Parmi les trois façons d'apprendre, l'"
+        },
+        {
+          "type": "carte",
+          "id": "sft",
+          "texte": "ajustement supervisé"
+        },
+        {
+          "type": "texte",
+          "texte": ", deuxième phase, applique l'"
+        },
+        {
+          "type": "carte",
+          "id": "sup",
+          "texte": "apprentissage supervisé"
+        },
+        {
+          "type": "texte",
+          "texte": " : des personnes écrivent les bonnes réponses."
+        }
+      ],
+      "cartes": [
+        "sft",
+        "sup"
+      ]
+    },
+    {
+      "texte": "Parmi les trois façons d'apprendre, le [[rlhf|RLHF]], troisième phase, applique l'[[renf|apprentissage par renforcement]] : des humains classent les réponses du modèle.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Parmi les trois façons d'apprendre, le "
+        },
+        {
+          "type": "carte",
+          "id": "rlhf",
+          "texte": "RLHF"
+        },
+        {
+          "type": "texte",
+          "texte": ", troisième phase, applique l'"
+        },
+        {
+          "type": "carte",
+          "id": "renf",
+          "texte": "apprentissage par renforcement"
+        },
+        {
+          "type": "texte",
+          "texte": " : des humains classent les réponses du modèle."
+        }
+      ],
+      "cartes": [
+        "rlhf",
+        "renf"
+      ]
+    },
+    {
+      "texte": "Troisième phase, le [[rlhf|RLHF]] fait du [[ajuste|modèle ajusté]], issu de la deuxième, un [[assist|modèle assistant]] utile, honnête et inoffensif.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Troisième phase, le "
+        },
+        {
+          "type": "carte",
+          "id": "rlhf",
+          "texte": "RLHF"
+        },
+        {
+          "type": "texte",
+          "texte": " fait du "
+        },
+        {
+          "type": "carte",
+          "id": "ajuste",
+          "texte": "modèle ajusté"
+        },
+        {
+          "type": "texte",
+          "texte": ", issu de la deuxième, un "
+        },
+        {
+          "type": "carte",
+          "id": "assist",
+          "texte": "modèle assistant"
+        },
+        {
+          "type": "texte",
+          "texte": " utile, honnête et inoffensif."
+        }
+      ],
+      "cartes": [
+        "rlhf",
+        "ajuste",
+        "assist"
+      ]
+    },
+    {
+      "texte": "Dans le [[rlhf|RLHF]], la troisième phase, le [[recomp|modèle de récompense]] apprend à noter comme les humains, puis note seul les réponses.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Dans le "
+        },
+        {
+          "type": "carte",
+          "id": "rlhf",
+          "texte": "RLHF"
+        },
+        {
+          "type": "texte",
+          "texte": ", la troisième phase, le "
+        },
+        {
+          "type": "carte",
+          "id": "recomp",
+          "texte": "modèle de récompense"
+        },
+        {
+          "type": "texte",
+          "texte": " apprend à noter comme les humains, puis note seul les réponses."
+        }
+      ],
+      "cartes": [
+        "rlhf",
+        "recomp"
+      ]
+    },
+    {
+      "texte": "Placé dans une application, le [[assist|modèle assistant]], troisième et dernier modèle de la fabrication, devient un [[chatbot|chatbot]].",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Placé dans une application, le "
+        },
+        {
+          "type": "carte",
+          "id": "assist",
+          "texte": "modèle assistant"
+        },
+        {
+          "type": "texte",
+          "texte": ", troisième et dernier modèle de la fabrication, devient un "
+        },
+        {
+          "type": "carte",
+          "id": "chatbot",
+          "texte": "chatbot"
+        },
+        {
+          "type": "texte",
+          "texte": "."
+        }
+      ],
+      "cartes": [
+        "assist",
+        "chatbot"
+      ]
+    },
+    {
+      "texte": "Les [[gpu|GPU]] font le [[calcul|calcul]] d'un modèle : les multiplications de son réseau de neurones, répétées des milliards de fois.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Les "
+        },
+        {
+          "type": "carte",
+          "id": "gpu",
+          "texte": "GPU"
+        },
+        {
+          "type": "texte",
+          "texte": " font le "
+        },
+        {
+          "type": "carte",
+          "id": "calcul",
+          "texte": "calcul"
+        },
+        {
+          "type": "texte",
+          "texte": " d'un modèle : les multiplications de son réseau de neurones, répétées des milliards de fois."
+        }
+      ],
+      "cartes": [
+        "gpu",
+        "calcul"
+      ]
+    },
+    {
+      "texte": "Le [[calcul|calcul]] des [[gpu|GPU]] consomme de l'[[energie|énergie]] : beaucoup pour fabriquer un modèle, peu par réponse, mais à des milliards de réponses.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Le "
+        },
+        {
+          "type": "carte",
+          "id": "calcul",
+          "texte": "calcul"
+        },
+        {
+          "type": "texte",
+          "texte": " des "
+        },
+        {
+          "type": "carte",
+          "id": "gpu",
+          "texte": "GPU"
+        },
+        {
+          "type": "texte",
+          "texte": " consomme de l'"
+        },
+        {
+          "type": "carte",
+          "id": "energie",
+          "texte": "énergie"
+        },
+        {
+          "type": "texte",
+          "texte": " : beaucoup pour fabriquer un modèle, peu par réponse, mais à des milliards de réponses."
+        }
+      ],
+      "cartes": [
+        "calcul",
+        "gpu",
+        "energie"
+      ]
+    },
+    {
+      "texte": "Les [[echelle|lois d'échelle]] demandent un équilibre : quand le calcul augmente, les [[param|paramètres]] et les [[data|données d'entraînement]] doivent grandir ensemble.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Les "
+        },
+        {
+          "type": "carte",
+          "id": "echelle",
+          "texte": "lois d'échelle"
+        },
+        {
+          "type": "texte",
+          "texte": " demandent un équilibre : quand le calcul augmente, les "
+        },
+        {
+          "type": "carte",
+          "id": "param",
+          "texte": "paramètres"
+        },
+        {
+          "type": "texte",
+          "texte": " et les "
+        },
+        {
+          "type": "carte",
+          "id": "data",
+          "texte": "données d'entraînement"
+        },
+        {
+          "type": "texte",
+          "texte": " doivent grandir ensemble."
+        }
+      ],
+      "cartes": [
+        "echelle",
+        "param",
+        "data"
+      ]
+    },
+    {
+      "texte": "L'[[inf|inférence]] vient après l'entraînement : les [[param|paramètres]] du modèle ne bougent plus, et il n'apprend rien pendant que vous lui parlez.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "L'"
+        },
+        {
+          "type": "carte",
+          "id": "inf",
+          "texte": "inférence"
+        },
+        {
+          "type": "texte",
+          "texte": " vient après l'entraînement : les "
+        },
+        {
+          "type": "carte",
+          "id": "param",
+          "texte": "paramètres"
+        },
+        {
+          "type": "texte",
+          "texte": " du modèle ne bougent plus, et il n'apprend rien pendant que vous lui parlez."
+        }
+      ],
+      "cartes": [
+        "inf",
+        "param"
+      ]
+    },
+    {
+      "texte": "L'application assemble un seul texte, le [[contexte|contexte]] : d'abord le [[promptsys|prompt système]], puis tout l'historique, enfin votre message.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "L'application assemble un seul texte, le "
+        },
+        {
+          "type": "carte",
+          "id": "contexte",
+          "texte": "contexte"
+        },
+        {
+          "type": "texte",
+          "texte": " : d'abord le "
+        },
+        {
+          "type": "carte",
+          "id": "promptsys",
+          "texte": "prompt système"
+        },
+        {
+          "type": "texte",
+          "texte": ", puis tout l'historique, enfin votre message."
+        }
+      ],
+      "cartes": [
+        "contexte",
+        "promptsys"
+      ]
+    },
+    {
+      "texte": "Tout le [[contexte|contexte]], historique compris, doit tenir dans la [[fen|fenêtre de contexte]] ; sinon, le début de la conversation peut en sortir.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Tout le "
+        },
+        {
+          "type": "carte",
+          "id": "contexte",
+          "texte": "contexte"
+        },
+        {
+          "type": "texte",
+          "texte": ", historique compris, doit tenir dans la "
+        },
+        {
+          "type": "carte",
+          "id": "fen",
+          "texte": "fenêtre de contexte"
+        },
+        {
+          "type": "texte",
+          "texte": " ; sinon, le début de la conversation peut en sortir."
+        }
+      ],
+      "cartes": [
+        "contexte",
+        "fen"
+      ]
+    },
+    {
+      "texte": "La [[fen|fenêtre de contexte]] est une limite, comptée en [[token|tokens]] : ce qui dépasse cette limite, le modèle ne le voit pas.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "La "
+        },
+        {
+          "type": "carte",
+          "id": "fen",
+          "texte": "fenêtre de contexte"
+        },
+        {
+          "type": "texte",
+          "texte": " est une limite, comptée en "
+        },
+        {
+          "type": "carte",
+          "id": "token",
+          "texte": "tokens"
+        },
+        {
+          "type": "texte",
+          "texte": " : ce qui dépasse cette limite, le modèle ne le voit pas."
+        }
+      ],
+      "cartes": [
+        "fen",
+        "token"
+      ]
+    },
+    {
+      "texte": "Chaque [[token|token]] reçoit un numéro, puis devient une liste de nombres, son [[emb|embedding]], qui le place sur une carte du sens.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Chaque "
+        },
+        {
+          "type": "carte",
+          "id": "token",
+          "texte": "token"
+        },
+        {
+          "type": "texte",
+          "texte": " reçoit un numéro, puis devient une liste de nombres, son "
+        },
+        {
+          "type": "carte",
+          "id": "emb",
+          "texte": "embedding"
+        },
+        {
+          "type": "texte",
+          "texte": ", qui le place sur une carte du sens."
+        }
+      ],
+      "cartes": [
+        "token",
+        "emb"
+      ]
+    },
+    {
+      "texte": "Dans chaque couche du [[transf|Transformer]], l'[[attn|attention]] précise le sens de chaque [[token|token]] d'après ceux qui le précèdent.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Dans chaque couche du "
+        },
+        {
+          "type": "carte",
+          "id": "transf",
+          "texte": "Transformer"
+        },
+        {
+          "type": "texte",
+          "texte": ", l'"
+        },
+        {
+          "type": "carte",
+          "id": "attn",
+          "texte": "attention"
+        },
+        {
+          "type": "texte",
+          "texte": " précise le sens de chaque "
+        },
+        {
+          "type": "carte",
+          "id": "token",
+          "texte": "token"
+        },
+        {
+          "type": "texte",
+          "texte": " d'après ceux qui le précèdent."
+        }
+      ],
+      "cartes": [
+        "transf",
+        "attn",
+        "token"
+      ]
+    },
+    {
+      "texte": "Le [[transf|Transformer]], une pile de couches, traite tous les tokens en même temps : un calcul en parallèle, que les [[gpu|GPU]] savent faire.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Le "
+        },
+        {
+          "type": "carte",
+          "id": "transf",
+          "texte": "Transformer"
+        },
+        {
+          "type": "texte",
+          "texte": ", une pile de couches, traite tous les tokens en même temps : un calcul en parallèle, que les "
+        },
+        {
+          "type": "carte",
+          "id": "gpu",
+          "texte": "GPU"
+        },
+        {
+          "type": "texte",
+          "texte": " savent faire."
+        }
+      ],
+      "cartes": [
+        "transf",
+        "gpu"
+      ]
+    },
+    {
+      "texte": "Presque tous les [[llm|LLM]], ces grands modèles de langage, reposent sur le [[transf|Transformer]], l'architecture publiée par Google en 2017.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Presque tous les "
+        },
+        {
+          "type": "carte",
+          "id": "llm",
+          "texte": "LLM"
+        },
+        {
+          "type": "texte",
+          "texte": ", ces grands modèles de langage, reposent sur le "
+        },
+        {
+          "type": "carte",
+          "id": "transf",
+          "texte": "Transformer"
+        },
+        {
+          "type": "texte",
+          "texte": ", l'architecture publiée par Google en 2017."
+        }
+      ],
+      "cartes": [
+        "llm",
+        "transf"
+      ]
+    },
+    {
+      "texte": "Après la dernière couche du [[transf|Transformer]], le modèle calcule une probabilité pour chaque [[token|token]] possible.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Après la dernière couche du "
+        },
+        {
+          "type": "carte",
+          "id": "transf",
+          "texte": "Transformer"
+        },
+        {
+          "type": "texte",
+          "texte": ", le modèle calcule une probabilité pour chaque "
+        },
+        {
+          "type": "carte",
+          "id": "token",
+          "texte": "token"
+        },
+        {
+          "type": "texte",
+          "texte": " possible."
+        }
+      ],
+      "cartes": [
+        "transf",
+        "token"
+      ]
+    },
+    {
+      "texte": "Pendant l'[[inf|inférence]], la [[temp|température]] dose le hasard du tirage de chaque [[token|token]] : d'où des réponses différentes à une même demande.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Pendant l'"
+        },
+        {
+          "type": "carte",
+          "id": "inf",
+          "texte": "inférence"
+        },
+        {
+          "type": "texte",
+          "texte": ", la "
+        },
+        {
+          "type": "carte",
+          "id": "temp",
+          "texte": "température"
+        },
+        {
+          "type": "texte",
+          "texte": " dose le hasard du tirage de chaque "
+        },
+        {
+          "type": "carte",
+          "id": "token",
+          "texte": "token"
+        },
+        {
+          "type": "texte",
+          "texte": " : d'où des réponses différentes à une même demande."
+        }
+      ],
+      "cartes": [
+        "inf",
+        "temp",
+        "token"
+      ]
+    },
+    {
+      "texte": "Pendant l'[[inf|inférence]], chaque token tiré allonge le [[contexte|contexte]], puis tout recommence : nouvelles probabilités, nouveau tirage, jusqu'au token de fin.",
+      "segments": [
+        {
+          "type": "texte",
+          "texte": "Pendant l'"
+        },
+        {
+          "type": "carte",
+          "id": "inf",
+          "texte": "inférence"
+        },
+        {
+          "type": "texte",
+          "texte": ", chaque token tiré allonge le "
+        },
+        {
+          "type": "carte",
+          "id": "contexte",
+          "texte": "contexte"
+        },
+        {
+          "type": "texte",
+          "texte": ", puis tout recommence : nouvelles probabilités, nouveau tirage, jusqu'au token de fin."
+        }
+      ],
+      "cartes": [
+        "inf",
+        "contexte"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "source": "ia",
+      "libelle": "contient",
+      "cible": "aa"
+    },
+    {
+      "source": "aa",
+      "libelle": "a pour façon d'apprendre",
+      "cible": "sup"
+    },
+    {
+      "source": "aa",
+      "libelle": "a pour façon d'apprendre",
+      "cible": "autosup"
+    },
+    {
+      "source": "aa",
+      "libelle": "a pour façon d'apprendre",
+      "cible": "renf"
+    },
+    {
+      "source": "ap",
+      "libelle": "repose sur",
+      "cible": "rn"
+    },
+    {
+      "source": "ap",
+      "libelle": "contient",
+      "cible": "iagen"
+    },
+    {
+      "source": "aa",
+      "libelle": "contient",
+      "cible": "ap"
+    },
+    {
+      "source": "llm",
+      "libelle": "est un type de",
+      "cible": "stat"
+    },
+    {
+      "source": "llm",
+      "libelle": "s'obtient par",
+      "cible": "train"
+    },
+    {
+      "source": "train",
+      "libelle": "règle",
+      "cible": "param"
+    },
+    {
+      "source": "train",
+      "libelle": "commence par",
+      "cible": "pre"
+    },
+    {
+      "source": "pre",
+      "libelle": "parcourt",
+      "cible": "data"
+    },
+    {
+      "source": "pre",
+      "libelle": "produit",
+      "cible": "base"
+    },
+    {
+      "source": "base",
+      "libelle": "sert de départ à",
+      "cible": "sft"
+    },
+    {
+      "source": "sft",
+      "libelle": "produit",
+      "cible": "ajuste"
+    },
+    {
+      "source": "ajuste",
+      "libelle": "apprend ensuite par",
+      "cible": "rlhf"
+    },
+    {
+      "source": "rlhf",
+      "libelle": "s'appuie sur",
+      "cible": "recomp"
+    },
+    {
+      "source": "rlhf",
+      "libelle": "produit",
+      "cible": "assist"
+    },
+    {
+      "source": "assist",
+      "libelle": "prend place dans",
+      "cible": "chatbot"
+    },
+    {
+      "source": "train",
+      "libelle": "demande",
+      "cible": "calcul"
+    },
+    {
+      "source": "train",
+      "libelle": "se dimensionne selon",
+      "cible": "echelle"
+    },
+    {
+      "source": "calcul",
+      "libelle": "se fait sur",
+      "cible": "gpu"
+    },
+    {
+      "source": "calcul",
+      "libelle": "consomme",
+      "cible": "energie"
+    },
+    {
+      "source": "inf",
+      "libelle": "traite",
+      "cible": "contexte"
+    },
+    {
+      "source": "contexte",
+      "libelle": "commence par",
+      "cible": "promptsys"
+    },
+    {
+      "source": "contexte",
+      "libelle": "se découpe en",
+      "cible": "token"
+    },
+    {
+      "source": "contexte",
+      "libelle": "doit tenir dans",
+      "cible": "fen"
+    },
+    {
+      "source": "fen",
+      "libelle": "se compte en",
+      "cible": "token"
+    },
+    {
+      "source": "emb",
+      "libelle": "traverse les couches de",
+      "cible": "transf"
+    },
+    {
+      "source": "transf",
+      "libelle": "repose sur",
+      "cible": "attn"
+    },
+    {
+      "source": "token",
+      "libelle": "se tire au sort selon",
+      "cible": "temp"
+    },
+    {
+      "source": "token",
+      "libelle": "devient",
+      "cible": "emb"
+    },
+    {
+      "source": "iagen",
+      "libelle": "a pour centre",
+      "cible": "llm"
+    },
+    {
+      "source": "rn",
+      "libelle": "a pour boutons",
+      "cible": "param"
+    },
+    {
+      "source": "pre",
+      "libelle": "applique",
+      "cible": "autosup"
+    },
+    {
+      "source": "sft",
+      "libelle": "applique",
+      "cible": "sup"
+    },
+    {
+      "source": "rlhf",
+      "libelle": "applique",
+      "cible": "renf"
+    },
+    {
+      "source": "inf",
+      "libelle": "demande",
+      "cible": "calcul"
+    },
+    {
+      "source": "iagen",
+      "libelle": "doit son essor à",
+      "cible": "transf"
+    },
+    {
+      "source": "iagen",
+      "libelle": "doit son essor à",
+      "cible": "data"
+    },
+    {
+      "source": "iagen",
+      "libelle": "doit son essor à",
+      "cible": "calcul"
+    },
+    {
+      "source": "inf",
+      "libelle": "garde figés",
+      "cible": "param"
+    },
+    {
+      "source": "chatbot",
+      "libelle": "assemble",
+      "cible": "contexte"
+    },
+    {
+      "source": "llm",
+      "libelle": "repose sur",
+      "cible": "transf"
+    },
+    {
+      "source": "transf",
+      "libelle": "calcule en parallèle sur",
+      "cible": "gpu"
+    },
+    {
+      "source": "llm",
+      "libelle": "est un type de",
+      "cible": "rn"
+    }
+  ],
+  "suites": [
+    {
+      "titre": "La fabrication d'un assistant",
+      "etapes": [
+        {
+          "carte": "data",
+          "texte": "On rassemble une immense sélection de textes, surtout du web, filtrée."
+        },
+        {
+          "carte": "pre",
+          "texte": "Le modèle apprend à deviner leur suite : il en sort un modèle de base, qui sait beaucoup."
+        },
+        {
+          "carte": "sft",
+          "texte": "Il imite des milliers d'exemples de conversations : il en sort un modèle ajusté, qui répond."
+        },
+        {
+          "carte": "rlhf",
+          "texte": "Des humains, puis un modèle de récompense, notent ses réponses : il en sort le modèle assistant."
+        },
+        {
+          "carte": "chatbot",
+          "texte": "Une application place le modèle assistant devant vous, avec une interface et un prompt système : c'est le chatbot."
+        }
+      ]
+    },
+    {
+      "titre": "Le trajet d'une réponse",
+      "etapes": [
+        {
+          "carte": "contexte",
+          "texte": "L'application assemble le contexte : prompt système, historique, votre message ; il doit tenir dans la fenêtre."
+        },
+        {
+          "carte": "token",
+          "texte": "Le tokeniseur découpe ce texte en tokens, chacun avec son numéro."
+        },
+        {
+          "carte": "emb",
+          "texte": "Chaque token devient une liste de nombres : son embedding."
+        },
+        {
+          "carte": "transf",
+          "texte": "Ces nombres traversent les couches du Transformer, où l'attention précise le sens ; à la sortie, une probabilité pour chaque token possible."
+        },
+        {
+          "carte": "temp",
+          "texte": "Le modèle en tire un au sort, selon ces probabilités et la température, l'ajoute au texte, et toute la boucle recommence jusqu'au token de fin."
+        }
+      ]
+    }
+  ]
+}

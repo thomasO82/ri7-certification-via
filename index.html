@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="fr">
+<head>
+ <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="theme-color" content="#0030b8"><meta name="description" content="Découvrez l’IA générative avec des cours interactifs, des exercices, vos notes et trois tuteurs.">
+ <title>RI7, certification VIA</title>
+ <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="src/styles/styles.css"><link rel="stylesheet" href="src/styles/theme-ri7.css"><link rel="stylesheet" href="src/styles/exploration.css"><link rel="stylesheet" href="src/styles/viewport.css"><link rel="stylesheet" href="src/styles/immersive.css"><link rel="stylesheet" href="src/styles/visual-novel.css"><link rel="stylesheet" href="src/styles/course-player.css">
+</head>
+<body>
+ <div class="shell">
+  <header class="toolbar">
+   <a class="brand" href="#" id="home" aria-label="Accueil de la classe"><span class="brand-mark" aria-hidden="true">L</span><span>La classe<br><small>Comprendre l’IA</small></span></a>
+   <nav aria-label="Outils du parcours"><button id="courses" class="tool" aria-label="Cours et fiche mémo"></button><button id="map" class="tool"></button><button id="journal" class="tool"></button><button id="help" class="tool" aria-label="Comment jouer"></button></nav>
+  </header>
+  <main id="main">
+   <div class="scene-viewport"><section class="stage" aria-label="Scène de la classe">
+    <img id="background" class="background" style="visibility:hidden" alt="Salle de classe">
+    <div class="objective" id="objective"></div>
+    <div class="room-label" id="room-label"></div>
+    <div id="hotspots"></div>
+    <div id="welcome" class="welcome"></div>
+    <div id="scene-message" class="scene-message" aria-live="polite"></div>
+   </section>
+   </div><section id="learning-guide" class="learning-guide" aria-label="Votre parcours"></section>
+   <div class="underbar"><span id="progress"></span><span id="save-status" role="status">Progression sauvegardée sur cet appareil</span></div>
+  </main>
+  <footer><span>Un parcours pour comprendre l’IA générative</span><button id="sources" class="text-button">D’après le cours Ri7 · VIA©</button></footer>
+ </div>
+ <dialog id="dialog" aria-labelledby="dialog-title"><div class="dialog-top"><span id="dialog-kind"></span><button class="close" id="close-dialog" aria-label="Fermer">×</button></div><div id="dialog-body"></div></dialog>
+ <script type="module" src="src/main.js"></script>
+</body>
+</html>

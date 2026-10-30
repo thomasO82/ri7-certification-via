@@ -1,0 +1,6 @@
+{
+ "name":"ri7-certification-via","version":"1.0.0","private":true,"type":"module",
+ "description":"Classe interactive RI7 pour la certification VIA",
+ "scripts":{"dev":"node scripts/dev.mjs","build":"node scripts/build.mjs","preview":"node scripts/preview.mjs","test":"node --test tests/*.test.js","build:study":"node scripts/build-study.mjs","build:exercises":"node scripts/build-exercises.mjs"},
+ "engines":{"node":">=20"}
+}

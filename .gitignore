@@ -1,0 +1,27 @@
+# Secrets et configuration locale
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+.openai/
+.codex/
+.agents/
+
+# Dépendances et fichiers générés
+node_modules/
+dist/
+outputs/
+.cache/
+vendor/ri7/*-bundle.js
+vendor/ri7/study-entry.js
+vendor/ri7/large-games-entry.js
+
+# Fichiers locaux
+*.log
+.DS_Store
+Thumbs.db
